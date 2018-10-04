@@ -19,7 +19,9 @@ module.exports = merge([{
     parts.html({
         template: 'src/index.html'
     }),
+    parts.provideJquery(),
     parts.typeScript(),
+    parts.font(),
     parts.raw({
         include: PATHS.app
    }),

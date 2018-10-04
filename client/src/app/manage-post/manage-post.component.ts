@@ -3,9 +3,10 @@ import { CategoryService } from './../category.service';
 import { Component } from "@angular/core";
 import Category from "../category";
 import Post from '../post';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap, tap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { switchMap, tap, zip, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component({
     selector: "app-manage-post-container",
@@ -18,7 +19,9 @@ export class ManagePostComponent {
 
     constructor(
         private postService: PostService,
-        private route: ActivatedRoute
+        private userService: UserService,
+        private route: ActivatedRoute,
+        private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -30,8 +33,13 @@ export class ManagePostComponent {
                 }
                 return of(null);
             }),
-            tap(console.log)
-        ).subscribe(post => this.post = post)
+            catchError(() => of(null))
+        ).subscribe(post => {
+            if (!post) {
+                this.router.navigate(['/not-found']);
+            }
+            this.post = post;
+        });
     }
 
 }

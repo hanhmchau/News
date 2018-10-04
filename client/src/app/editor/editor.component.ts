@@ -12,10 +12,9 @@ import { Router } from '@angular/router';
     styleUrls: ["./editor.component.css"]
 })
 export class EditorComponent {
-    @Input()
-    post: Post = new Post();
+    @Input() post: Post = new Post();
     private categories: Category[];
-    @ViewChild("content") contentBox: ElementRef;
+    // @ViewChild("content") contentBox: ElementRef;
 
     constructor(
         private postService: PostService,
@@ -30,25 +29,25 @@ export class EditorComponent {
         this.post = this.post || new Post();
     }
 
-    getImageElement(fileName: string) {
-        return `<img style="display: block; max-width: 300px;" src="${fileName}" />`;
-    }
+    // getImageElement(fileName: string) {
+    //     return `<img style="display: block; max-width: 300px;" src="${fileName}" />`;
+    // }
 
-    getCursorPosition() {
-        const element = this.contentBox.nativeElement;
-        let caretOffset = 0;
-        const doc = element.ownerDocument || element.document;
-        const win = doc.defaultView || doc.parentWindow;
-        let sel = win.getSelection();
-        if (sel.rangeCount > 0) {
-            var range = win.getSelection().getRangeAt(0);
-            var preCaretRange = range.cloneRange();
-            preCaretRange.selectNodeContents(element);
-            preCaretRange.setEnd(range.endContainer, range.endOffset);
-            caretOffset = preCaretRange.toString().length;
-        }
-        return caretOffset;
-    }
+    // getCursorPosition() {
+    //     const element = this.contentBox.nativeElement;
+    //     let caretOffset = 0;
+    //     const doc = element.ownerDocument || element.document;
+    //     const win = doc.defaultView || doc.parentWindow;
+    //     let sel = win.getSelection();
+    //     if (sel.rangeCount > 0) {
+    //         var range = win.getSelection().getRangeAt(0);
+    //         var preCaretRange = range.cloneRange();
+    //         preCaretRange.selectNodeContents(element);
+    //         preCaretRange.setEnd(range.endContainer, range.endOffset);
+    //         caretOffset = preCaretRange.toString().length;
+    //     }
+    //     return caretOffset;
+    // }
 
     uploadPreviewImage(files: FileList): void {
         if (files.length) {
@@ -70,7 +69,7 @@ export class EditorComponent {
                     // const cursor = this.getCursorPosition();
                     // console.log(cursor);
                     // const innerHtml = this.contentBox.nativeElement.innerHTML;
-                    this.contentBox.nativeElement.innerHTML += this.getImageElement(data.fileName);
+                    // this.contentBox.nativeElement.innerHTML += this.getImageElement(data.fileName);
                     // this.contentBox.nativeElement.innerHTML = innerHtml.slice(0, cursor) + this.getImageUrl(data.fileName) + innerHtml.slice(cursor);
                 });
         }
@@ -86,7 +85,7 @@ export class EditorComponent {
     }
 
     save() {
-        this.updateContent();
+        // this.updateContent();
         console.log(this.post);
         this.postService.saveOrUpdate(this.post).subscribe(data => {
             if (data && data.id) {
@@ -95,7 +94,7 @@ export class EditorComponent {
         });
     }
 
-    updateContent() {
-        this.post.content = this.contentBox.nativeElement.innerHTML;
-    }
+    // updateContent() {
+    //     this.post.content = this.contentBox.nativeElement.innerHTML;
+    // }
 }

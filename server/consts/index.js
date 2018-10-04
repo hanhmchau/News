@@ -1,4 +1,4 @@
 exports.roles = {
-    VIEWER: 0,
+    READER: 0,
     JOURNALIST: 1
 };

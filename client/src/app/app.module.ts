@@ -22,6 +22,12 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { RoutingService } from './routing.service';
 import { EditorComponent } from './editor/editor.component';
 import { SearchPipe } from './search.pipe';
+import { JournalistGuard } from './journalist.guard';
+import { NoAuthGuard } from './noauth.guard';
+import { AuthGuard } from './auth.guard';
+import { RegisterComponent } from './register/register.component';
+import "froala-editor/js/froala_editor.pkgd.min.js";
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 const tokenGetter = () => localStorage.getItem("token");
 
@@ -37,6 +43,7 @@ const tokenGetter = () => localStorage.getItem("token");
         LoginComponent,
         ManagePostComponent,
         EditorComponent,
+        RegisterComponent,
         SafeStylePipe,
         PaginatePipe,
         SearchPipe,
@@ -51,7 +58,9 @@ const tokenGetter = () => localStorage.getItem("token");
                     '%herokuapp%'
                 ]
             }
-        }) ],
+        }),
+        FroalaEditorModule.forRoot(),
+        FroalaViewModule.forRoot()],
     exports: [],
     providers: [
         // add injectable things here
@@ -59,7 +68,10 @@ const tokenGetter = () => localStorage.getItem("token");
         CategoryService,
         PostService,
         UserService,
-        RoutingService
+        RoutingService,
+        JournalistGuard,
+        NoAuthGuard,
+        AuthGuard
     ],
     bootstrap: [AppComponent]
 })

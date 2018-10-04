@@ -1,4 +1,7 @@
 @import "../node_modules/pretty-checkbox/dist/pretty-checkbox.css";
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/froala-editor/css/froala_editor.pkgd.min.css';
+
 * {
     font-family: sans-serif;
 }

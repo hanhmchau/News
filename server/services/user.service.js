@@ -1,5 +1,6 @@
 const db = require('../db');
 const bcrypt = require('bcryptjs');
+const consts = require('../consts');
 
 exports.login = async (email, password) => {
 	const { rows } = await db.query(
@@ -27,8 +28,8 @@ exports.getUserById = async (id) => {
 exports.register = async (email, password) => {
     const hashedPassword = bcrypt.hashSync(password.toString(), 10);
 	const { rows } = await db.query(
-		'INSERT INTO AppUser(Email, Password) VALUES($1, $2) RETURNING Id',
-		[email, hashedPassword]
+		'INSERT INTO AppUser(Email, Password, Role) VALUES($1, $2, $3) RETURNING Id',
+		[email, hashedPassword, consts.roles.JOURNALIST]
     );
     return rows[0];
 };

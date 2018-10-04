@@ -4,6 +4,9 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from './login/login.component';
 import { ManagePostComponent } from './manage-post/manage-post.component';
+import { RegisterComponent } from './register/register.component';
+import { NoAuthGuard } from './noauth.guard';
+import { JournalistGuard } from './journalist.guard';
 
 const routes: Routes = [
     {
@@ -17,15 +20,23 @@ const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [NoAuthGuard]
     },
     {
         path: 'new-post',
-        component: ManagePostComponent
+        component: ManagePostComponent,
+        canActivate: [JournalistGuard]
     },
     {
         path: 'manage-post/:id',
-        component: ManagePostComponent
+        component: ManagePostComponent,
+        canActivate: [JournalistGuard]
+    },
+    {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [NoAuthGuard]
     }
     // {
     //     path: "user/:id",
