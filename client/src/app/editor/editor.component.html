@@ -1,10 +1,16 @@
 <div *ngIf="post">
     <input type="checkbox" [(ngModel)]="post.public" /> Show to public
+    <br/>
     Title <input [(ngModel)]="post.name"/>
-    <input type="file" (change)="uploadPreviewImage($event.target.files)" />
+    <br/>
+    Upload preview image: <input type="file" (change)="uploadPreviewImage($event.target.files)" />
+    <br/>
+    Upload image inside post:<input type="file" (change)="uploadImage($event.target.files)" />
+    <br />
     <select [(ngModel)]="post.categoryid">
         <option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
     </select>
+    <br/>
     <div #content [innerHTML]="(post.content) | safeStyle" (blur)="updateContent()" contenteditable="true" style="height: 500px;">
     </div>
     <button [disabled]="!isValidated()" (click)="save()">Save</button>

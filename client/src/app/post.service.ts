@@ -26,12 +26,9 @@ export class PostService {
         return this.http.get<Post>(`${this.postUrl}/${id}/private`);
     }
 
-    uploadPreviewImage(id: string, image: File): any {
+    uploadImage(image: File): any {
         const formData: FormData = new FormData();
         formData.append("preview-image", image, image.name);
-        // if (id !== "0") {
-        //     return this.http.put<Post>(`${this.postUrl}/${id}/preview-image`, formData);
-        // }
         return this.http.post<Post>(`${this.postUrl}/preview-image`, formData);
     }
 

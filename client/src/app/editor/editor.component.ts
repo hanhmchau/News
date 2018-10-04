@@ -30,7 +30,7 @@ export class EditorComponent {
         this.post = this.post || new Post();
     }
 
-    getImageUrl(fileName: string) {
+    getImageElement(fileName: string) {
         return `<img style="display: block; max-width: 300px;" src="${fileName}" />`;
     }
 
@@ -53,14 +53,24 @@ export class EditorComponent {
     uploadPreviewImage(files: FileList): void {
         if (files.length) {
             const image = files.item(0);
-            const postId = this.post.id || 0;
             this.postService
-                .uploadPreviewImage(postId.toString(), image)
+                .uploadImage(image)
+                .subscribe((data: any) => {
+                    this.post.previewimage = data.fileName;
+                });
+        }
+    }
+
+    uploadImage(files: FileList): void {
+        if (files.length) {
+            const image = files.item(0);
+            this.postService
+                .uploadImage(image)
                 .subscribe((data: any) => {
                     // const cursor = this.getCursorPosition();
                     // console.log(cursor);
                     // const innerHtml = this.contentBox.nativeElement.innerHTML;
-                    this.contentBox.nativeElement.innerHTML += this.getImageUrl(data.fileName);
+                    this.contentBox.nativeElement.innerHTML += this.getImageElement(data.fileName);
                     // this.contentBox.nativeElement.innerHTML = innerHtml.slice(0, cursor) + this.getImageUrl(data.fileName) + innerHtml.slice(cursor);
                 });
         }

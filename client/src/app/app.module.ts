@@ -1,3 +1,5 @@
+import { FilterCategoryPipe } from './filterCategory.pipe';
+import { PaginatePipe } from './paginate.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
 import { ManagePostComponent } from './manage-post/manage-post.component';
 import { SinglePostComponent } from './single-post/single-post.component';
@@ -19,6 +21,7 @@ import { UserService } from './user.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { RoutingService } from './routing.service';
 import { EditorComponent } from './editor/editor.component';
+import { SearchPipe } from './search.pipe';
 
 const tokenGetter = () => localStorage.getItem("token");
 
@@ -34,7 +37,10 @@ const tokenGetter = () => localStorage.getItem("token");
         LoginComponent,
         ManagePostComponent,
         EditorComponent,
-        SafeStylePipe
+        SafeStylePipe,
+        PaginatePipe,
+        SearchPipe,
+        FilterCategoryPipe
     ],
     imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule,
         JwtModule.forRoot({

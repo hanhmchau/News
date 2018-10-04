@@ -1,6 +1,7 @@
 <div *ngIf="post">
     <h5>{{post.name}}</h5>
     <span>{{post.categoryname}}</span>
+    <img src="{{post.previewimage}}" >
     <span>{{post.authorname}}</span>
     <div [innerHTML]="post.content | safeStyle">
     </div>
