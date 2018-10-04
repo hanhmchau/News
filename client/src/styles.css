@@ -1,0 +1,4 @@
+@import "../node_modules/pretty-checkbox/dist/pretty-checkbox.css";
+* {
+    font-family: sans-serif;
+}

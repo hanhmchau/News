@@ -1,0 +1,6 @@
+<span *ngIf="invalidated">Please fill in all fields.</span>
+<span *ngIf="logInFail">Your credentials are invalid.</span>
+Email: <input name="email" [(ngModel)]="email">
+<br/>
+Password: <input name="password" type="password" [(ngModel)]="password">
+<button (click)="login()" name="login">Login</button>

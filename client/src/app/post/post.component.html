@@ -1,0 +1,14 @@
+<div *ngIf="post">
+    <h5>{{post.name}}</h5>
+    <span>{{post.categoryname}}</span>
+    <span>{{post.authorname}}</span>
+    <div [innerHTML]="post.content | safeStyle">
+    </div>
+    <a routerLink="/post/{{post.id}}"></a>
+        <br />
+    <div>
+        <span *ngFor="let tag of post.tags">{{tag.name}}</span>
+    </div>
+    <a routerLink="/post/{{post.id}}">Read</a>
+    <a routerLink="/manage-post/{{post.id}}">Edit</a>
+</div>

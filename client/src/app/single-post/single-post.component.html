@@ -1,0 +1,13 @@
+<div *ngIf="post$ | async as post">
+    <h5>{{post.name}}</h5>
+    <span>{{post.categoryname}}</span>
+    <br />
+    <span>{{post.authorname}}</span>
+    <br />
+    <br /><br /><br />
+    <div [innerHTML]="post.content | safeStyle">
+    </div>
+    <div>
+        <span *ngFor="let tag of post.tags">{{tag.name}}</span>
+    </div>
+</div>

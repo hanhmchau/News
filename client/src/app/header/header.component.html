@@ -1,0 +1,19 @@
+<div>
+    Read
+</div>
+<div>
+    ...a minimalistic theme focused on readability.
+</div>
+<a routerLink="/">Home</a>
+<ng-container *ngIf="user; else guest">
+    <span>Hi, {{user.email}}</span>
+    <a routerLink="/new-post">Write New Post</a>
+    <a routerLink="/" (click)="logout()" >Log Out</a>
+</ng-container>
+<ng-template #guest>
+    <a routerLink="/login">Login</a>
+</ng-template>
+
+<!-- <div>
+    <a routerLink="/category/{{category.id}}" routerLinkActive="active" *ngFor="let category of categories">{{category.name}}</a>
+</div> -->
