@@ -71,7 +71,10 @@ const tokenGetter = () => localStorage.getItem("token");
         RoutingService,
         JournalistGuard,
         NoAuthGuard,
-        AuthGuard
+        AuthGuard,
+        PaginatePipe,
+        SearchPipe,
+        FilterCategoryPipe
     ],
     bootstrap: [AppComponent]
 })

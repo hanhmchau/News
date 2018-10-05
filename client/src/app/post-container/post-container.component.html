@@ -1,6 +1,6 @@
 <div>
     <input [(ngModel)]="search" (input)="refresh()" />
-    <input type="number" [(ngModel)]="page" (input)="refresh()" />
+    <input type="number" [(ngModel)]="page" (input)="reset()" />
     <select [(ngModel)]="pageSize" (input)="refresh()">
         <option value="5" selected>5</option>
         <option value="10">10</option>
@@ -8,10 +8,9 @@
         <option value="50">50</option>
     </select>
     <div>
-        <button (click)="categoryId=null">All</button>
+        <button (click)="categoryId=null; refresh()">All</button>
         <button *ngFor="let category of categories" (click)="categoryId=category.id; refresh()">{{category.name}}</button>
     </div>
-    <app-post [post]="post" *ngFor="let post of posts | filterCategory:categoryId | search:search | paginate:page:pageSize as actualList"></app-post>
-    <input [value]="actualList?.length" />
-    <button *ngFor="let item of pageList(actualList); let i=index" (click)="page=i+1" >{{(i+1)}}</button>
+    <app-post [post]="post" *ngFor="let post of filteredPosts"></app-post>
+    <button *ngFor="let item of pageList(total); let i=index" (click)="page=i+1; reset()" >{{(i+1)}}</button>
 </div>
