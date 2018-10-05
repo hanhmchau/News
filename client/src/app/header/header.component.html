@@ -1,15 +1,28 @@
-<div>
-    Read
+<div class="container">
+    <a routerLink="/" class="title">
+        Read
+    </a>
+    <div class="subtitle">
+        ...a minimalistic theme focused on readability.
+    </div>
 </div>
-<div>
-    ...a minimalistic theme focused on readability.
+<div class="toolbar">
+    <ng-container *ngIf="user; else guest">
+        <span class="item">
+            <fa name="user-circle-o"></fa>
+            <span>Hi, {{shortEmail}}</span>
+        </span>
+        <span class="item">
+            <fa name="pencil"></fa>
+            <a *ngIf="isJournalist" routerLink="/new-post">New Post</a>
+        </span>
+        <span class="item">
+            <a routerLink="/" (click)="logout()">Log Out</a>
+        </span>
+    </ng-container>
+    <ng-template #guest>
+        <span class="item">
+            <a routerLink="/login">Login</a>
+        </span>
+    </ng-template>
 </div>
-<a routerLink="/">Home</a>
-<ng-container *ngIf="user; else guest">
-    <span>Hi, {{user.email}}</span>
-    <a *ngIf="isJournalist" routerLink="/new-post">Write New Post</a>
-    <a routerLink="/" (click)="logout()" >Log Out</a>
-</ng-container>
-<ng-template #guest>
-    <a routerLink="/login">Login</a>
-</ng-template>

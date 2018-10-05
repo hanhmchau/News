@@ -1,4 +1,4 @@
-<div *ngIf="post$ | async as post">
+<div *ngIf="post">
     <h5>{{post.name}}</h5>
     <span>{{post.categoryname}}</span>
     <br />
@@ -9,5 +9,18 @@
     </div>
     <div>
         <span *ngFor="let tag of post.tags">{{tag.name}}</span>
+    </div>
+    <ng-container *ngIf="post.favorites.indexOf(user.id) > -1; else favorited">
+        <button (click)="unfavorite()">Unfavorite</button>
+    </ng-container>
+    <ng-template #favorited>
+        <button (click)="favorite()">Favorite</button>
+    </ng-template>
+    <span>{{post.favorites.length}} liked this</span>
+    <app-comment *ngFor="let comment of post.comments" [comment]="comment"></app-comment>
+    <button (click)="showReplyBox=!showReplyBox">Reply</button>
+    <div *ngIf="showReplyBox">
+        <div [froalaEditor]="options" [(froalaModel)]="newReplyContent"></div>
+        <button (click)="reply()">Submit</button>
     </div>
 </div>

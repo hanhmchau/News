@@ -35,7 +35,7 @@ router.post('/preview-image/', upload.single('preview-image'), postController.up
 
 // router.put('/:id/preview-image/', userController.isPostOwner, upload.single('preview-image'), postController.uploadPreviewImage);
 
-router.get('/:id/favorite/:postId', userController.isAuthenticated, userController.getFavoritePosts);
+router.get('/:id/favorite', userController.isAuthenticated, userController.getFavoritePosts);
 
 router.post('/:id/favorite/:userId', userController.isProfileOwner, postController.favorite);
 

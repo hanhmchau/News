@@ -10,6 +10,7 @@
     <div>
         <span *ngFor="let tag of post.tags">{{tag.name}}</span>
     </div>
+    <div>{{post.favoritecount}} :heart:</div>
     <a routerLink="/post/{{post.id}}">Read</a>
     <a routerLink="/manage-post/{{post.id}}">Edit</a>
 </div>

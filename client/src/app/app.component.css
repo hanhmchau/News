@@ -3,10 +3,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 45px;
 }
 
-.todo-app {
-    width: 100%;
-    max-width: 800px;
+.inner-container {
+    width: 800px;
 }

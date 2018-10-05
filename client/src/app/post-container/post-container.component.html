@@ -1,16 +1,17 @@
 <div>
     <input [(ngModel)]="search" (input)="refresh()" />
-    <input type="number" [(ngModel)]="page" (input)="reset()" />
     <select [(ngModel)]="pageSize" (input)="refresh()">
         <option value="5" selected>5</option>
         <option value="10">10</option>
         <option value="25">25</option>
         <option value="50">50</option>
     </select>
-    <div>
-        <button (click)="categoryId=null; refresh()">All</button>
-        <button *ngFor="let category of categories" (click)="categoryId=category.id; refresh()">{{category.name}}</button>
+    <div class="categories">
+        <button [ngClass]="{'fake-button': true, 'active': !categoryId}" (click)="categoryId=null; refresh()">All</button>
+        <button [ngClass]="{'fake-button': true, 'active': categoryId === category.id}" *ngFor="let category of categories" (click)="categoryId=category.id; refresh()">{{category.name}}</button>
     </div>
     <app-post [post]="post" *ngFor="let post of filteredPosts"></app-post>
-    <button *ngFor="let item of pageList(total); let i=index" (click)="page=i+1; reset()" >{{(i+1)}}</button>
+    <div class="pagination" *ngIf="pageList(total).length > 1">
+        <button [ngClass]="{'fake-button': true, 'active': i === (page - 1)}" *ngFor="let item of pageList(total); let i=index" (click)="page=i+1; reset()">{{(i+1)}}</button>
+    </div>
 </div>

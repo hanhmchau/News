@@ -1,0 +1,13 @@
+<div>
+    <div>{{comment.commenterName}}</div>
+    <div [innerHTML]="comment.content">
+    </div>
+    <button (click)="showReplyBox=!showReplyBox">Reply</button>
+    <div *ngIf="showReplyBox">
+        <div [froalaEditor]="options" [(froalaModel)]="newReplyContent"></div>
+        <button (click)="reply()">Submit</button>
+    </div>
+    <div style="padding: 30px;">
+        <app-comment *ngFor="let child of comment.children" [comment]="child"></app-comment>
+    </div>
+</div>

@@ -99,11 +99,15 @@ exports.uploadImage = async (req, res) => {
 // };
 
 exports.createComment = async (req, res) => {
-    const { postId, content } = { ...req.body };
+    const { postId, content, parentId } = { ...req.body };
     const commenterId = req.user;
-    const comment = await postService.createComment(postId, content, commenterId);
+    const comment = await postService.createComment(postId, content, commenterId, parentId);
     return res.json({
-        id: comment.id
+        id: comment.id,
+        commenterid: commenterId,
+        postid: postId,
+        content,
+        parentid: parentId
     });
 };
 

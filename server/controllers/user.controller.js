@@ -127,7 +127,7 @@ exports.isCommentOwner = async (req, res, next) => {
 };
 
 exports.getFavoritePosts = async (req, res) => {
-	const userId = req.body.userId;
+	const userId = req.params.userId;
 	const posts = userService.getFavoritePosts(userId);
 	res.json({
 		posts

@@ -14,9 +14,14 @@ export class HeaderComponent {
     private categories: Category[] = [];
     private user: User;
     private isJournalist: boolean;
+    private shortEmail = "";
 
     constructor(private categoryService: CategoryService, private userService: UserService) {
 
+    }
+
+    shorten(email: string): string {
+        return email.substring(0, email.indexOf("@"));
     }
 
     ngOnInit(): void {
@@ -24,6 +29,7 @@ export class HeaderComponent {
         this.userService.getCurrentUser()
             .subscribe(user => {
                 this.user = user;
+                this.shortEmail = this.shorten(user.email);
                 this.isJournalist = user.role === consts.roles.JOURNALIST;
             });
     }

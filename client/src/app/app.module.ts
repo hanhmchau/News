@@ -1,3 +1,4 @@
+import { CommentComponent } from './comment/comment.component';
 import { FilterCategoryPipe } from './filterCategory.pipe';
 import { PaginatePipe } from './paginate.pipe';
 import { SafeStylePipe } from './safe-style.pipe';
@@ -28,6 +29,7 @@ import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './register/register.component';
 import "froala-editor/js/froala_editor.pkgd.min.js";
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { AngularFontAwesomeModule } from "angular-font-awesome";
 
 const tokenGetter = () => localStorage.getItem("token");
 
@@ -47,20 +49,24 @@ const tokenGetter = () => localStorage.getItem("token");
         SafeStylePipe,
         PaginatePipe,
         SearchPipe,
-        FilterCategoryPipe
+        FilterCategoryPipe,
+        CommentComponent
     ],
-    imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule,
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        AppRoutingModule,
         JwtModule.forRoot({
             config: {
                 tokenGetter,
-                whitelistedDomains: [
-                    'localhost:3000',
-                    '%herokuapp%'
-                ]
+                whitelistedDomains: ["localhost:3000", "%herokuapp%"]
             }
         }),
         FroalaEditorModule.forRoot(),
-        FroalaViewModule.forRoot()],
+        FroalaViewModule.forRoot(),
+        AngularFontAwesomeModule
+    ],
     exports: [],
     providers: [
         // add injectable things here
@@ -78,6 +84,4 @@ const tokenGetter = () => localStorage.getItem("token");
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule {}

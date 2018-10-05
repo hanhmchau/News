@@ -1,4 +1,5 @@
 import Tag from "./tag";
+import Comment from "./comment";
 
 export default class Post {
     id: number;
@@ -13,5 +14,7 @@ export default class Post {
     public: boolean;
     commentcount: number;
     favoritecount: number;
+    favorites: number[];
+    comments: Comment[];
     tags: Tag[];
 };

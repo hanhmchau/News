@@ -1,0 +1,42 @@
+.categories {
+    text-align: center;
+    padding: 5px;
+    border-top: 1px dotted lightgray;
+    border-bottom: 1px dotted lightgray;
+}
+
+.categories button {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.categories button.active {
+    color: #C30;
+}
+
+.fake-button {
+    background: none;
+    color: black;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination button {
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    background: lightgray;
+    text-align: center;
+    margin: 0 8px;
+}
+
+.pagination button.active {
+    background: #C30;
+    color: lightgray;
+}

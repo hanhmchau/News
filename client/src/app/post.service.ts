@@ -36,6 +36,14 @@ export class PostService {
         return this.http.post<Post>(`${this.postUrl}/preview-image`, formData);
     }
 
+    favorite(postId: number, userId: number): any {
+        return this.http.post<Post[]>(`${this.postUrl}/${postId}/favorite/${userId}`, {});
+    }
+
+    unfavorite(postId: number, userId: number): any {
+        return this.http.delete<Post[]>(`${this.postUrl}/${postId}/favorite/${userId}`);
+    }
+
     saveOrUpdate(post: Post): Observable<Post> {
         return this.userService.getCurrentUser().pipe(
             switchMap(
@@ -48,5 +56,13 @@ export class PostService {
                 }
             )
         );
+    }
+
+    comment(postId: number, parentId: number, content: string): Observable<any> {
+        return this.http.post<Post[]>(`${this.postUrl}/${postId}/comment`, {
+            postId,
+            parentId,
+            content
+        });
     }
 }
