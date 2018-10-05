@@ -33,7 +33,7 @@ router.delete('/:id', userController.isPostOwner, postController.delete);
 
 router.post('/preview-image/', upload.single('preview-image'), postController.uploadImage);
 
-router.put('/:id/preview-image/', userController.isPostOwner, upload.single('preview-image'), postController.uploadPreviewImage);
+// router.put('/:id/preview-image/', userController.isPostOwner, upload.single('preview-image'), postController.uploadPreviewImage);
 
 router.get('/:id/favorite/:postId', userController.isAuthenticated, userController.getFavoritePosts);
 

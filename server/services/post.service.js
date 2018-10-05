@@ -152,13 +152,13 @@ exports.unfavorite = async (postId, userId) => {
     return rows[0];
 };
 
-exports.uploadPreviewImage = async (postId, fileName) => {
-    const { rows } = await db.query(
-		'UPDATE Post SET PreviewImage = $1 WHERE id = $2',
-		[fileName, postId]
-	);
-	return rows[0];
-};
+// exports.uploadPreviewImage = async (postId, fileName) => {
+//     const { rows } = await db.query(
+// 		'UPDATE Post SET PreviewImage = $1 WHERE id = $2',
+// 		[fileName, postId]
+// 	);
+// 	return rows[0];
+// };
 
 exports.getFavoriteCount = async (postId) => {
     const { rows } = await db.query(

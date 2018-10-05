@@ -11,7 +11,7 @@
         <option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
     </select>
     <br/>
-    <div [froalaEditor] [(froalaModel)]="post.content"></div>
+    <div [froalaEditor]="options" [(froalaModel)]="post.content"></div>
     <!-- <div #content [innerHTML]="(post.content) | safeStyle" (blur)="updateContent()" contenteditable="true" style="height: 500px;">
     </div> -->
     <button [disabled]="!isValidated()" (click)="save()">Save</button>

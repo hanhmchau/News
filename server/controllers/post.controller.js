@@ -89,14 +89,14 @@ exports.unfavorite = async (req, res) => {
 };
 
 exports.uploadImage = async (req, res) => {
-    return res.json({ fileName: getFullUrl(req, req.fullFileName) });
+    return res.json({ link: getFullUrl(req, req.fullFileName) });
 };
 
-exports.uploadPreviewImage = async (req, res) => {
-    const postId = req.body.postId;
-    await postService.uploadPreviewImage(postId, req.fullFileName);
-    return res.json({ fileName: getFullUrl(req, req.fullFileName) });
-};
+// exports.uploadPreviewImage = async (req, res) => {
+//     const postId = req.body.postId;
+//     await postService.uploadPreviewImage(postId, req.fullFileName);
+//     return res.json({ fileName: getFullUrl(req, req.fullFileName) });
+// };
 
 exports.createComment = async (req, res) => {
     const { postId, content } = { ...req.body };

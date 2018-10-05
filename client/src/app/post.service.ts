@@ -26,6 +26,10 @@ export class PostService {
         return this.http.get<Post>(`${this.postUrl}/${id}/private`);
     }
 
+    getUploadImageURL() {
+        return `${this.postUrl}/preview-image`;
+    }
+
     uploadImage(image: File): any {
         const formData: FormData = new FormData();
         formData.append("preview-image", image, image.name);
