@@ -5,19 +5,6 @@
             posted in <span>{{post.categoryname}}</span>
             on <span>{{post.datepublished | date:'longDate'}}</span>
             by <span>{{post.authorname | shortEmail}}</span>
-            <ng-container *ngIf="post.commentcount > 0">
-                &nbsp;
-                <fa name="comment"></fa>
-                &nbsp;
-                {{post.commentcount}} {{(post.commentcount > 1 ? 'comments' : 'comment')}}
-            </ng-container>
-            <ng-container *ngIf="post.favoritecount > 0">
-                &nbsp;
-                <fa name="heart"></fa>
-                &nbsp;
-                {{post.favoritecount}} {{(post.favoritecount > 1 ? 'favorites' : 'favorite')}}
-            </ng-container>
-
         </div>
         <div class="preview-image" *ngIf="post.previewimage">
             <img src="{{post.previewimage}}">
@@ -25,15 +12,19 @@
         <div class="content" [innerHTML]="post.content | safeStyle">
         </div>
         <div class="tag-section">
-            <fa name="tag"></fa>
-            <span class="tag" *ngFor="let tag of post.tags; let i=index">
-                <span class="name">
-                    {{tag.name}}
+            <div>
+                <fa name="tag"></fa>
+            </div>
+            <div class="tag-list">
+                <span class="tag" *ngFor="let tag of post.tags; let i=index">
+                    <span class="name">
+                        {{tag.name}}
+                    </span>
+                    <span *ngIf="i<post.tags.length-1">
+                        ,
+                    </span>
                 </span>
-                <span *ngIf="i<post.tags.length-1">
-                    ,
-                </span>
-            </span>
+            </div>
         </div>
         <!-- <a routerLink="/manage-post/{{post.id}}">Edit</a> -->
     </div>
@@ -43,6 +34,10 @@
             <span class="favorite-count">{{post.favorites.length}}</span>
         </button>
         <span class="you-liked-this" *ngIf="youLikedThis">You liked this.</span>
+        <button class="edit-button" routerLink="/manage-post/{{post.id}}"  *ngIf="user && user.id === post.authorid">
+            <fa name="pencil"></fa>
+            Edit
+        </button>
     </div>
     <div class="comment-section">
         <div class="title">Create your Reply</div>
@@ -50,7 +45,7 @@
             <div class="editor">
                 <div #editor [froalaEditor]="options" [(froalaModel)]="newReplyContent"></div>
                 <button class="submit" (click)="reply()">Post Comment</button>
-            </div>    
+            </div>
         </ng-container>
         <ng-template #notLoggedIn>
             <a routerLink="/login">Log in</a> to join the discussion.
