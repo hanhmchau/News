@@ -15,9 +15,14 @@ const storage = multer.diskStorage({
         cb(null, fileName);
 	}
 });
+
 const upload = multer({
     storage
 });
+
+router.get('/tags', postController.getTagSuggestions);
+
+router.post('/tags', postController.createTag);
 
 router.get('/', postController.getAllPublicPosts);
 

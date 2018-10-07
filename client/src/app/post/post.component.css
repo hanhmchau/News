@@ -1,4 +1,48 @@
 img {
-    max-width: 100px;
-    max-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+.post {
+    margin: 70px 0 100px 0;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.9em;
+    font-weight: 500;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: darkgray;
+    margin: 30px;
+}
+
+.subtitle span {
+    color: #333;
+    text-decoration: underline dotted;
+}
+
+.content {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.continue-reading {
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-bottom: 1px dotted #cccccc;
+    letter-spacing: 2x;
+}
+
+.continue-reading:hover {
+    color: #000;
+    background-color: #f7f7f7;
 }

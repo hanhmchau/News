@@ -1,0 +1,25 @@
+{
+  "name": "News",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "file-loader": "^2.0.0",
+    "froala-editor": "^2.8.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanhmchau/News.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanhmchau/News/issues"
+  },
+  "homepage": "https://github.com/hanhmchau/News#readme"
+}

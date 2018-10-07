@@ -1,18 +1,40 @@
 <div *ngIf="post">
-    <input type="checkbox" [(ngModel)]="post.public" /> Show to public
-    <br/>
-    Title <input [(ngModel)]="post.name"/>
-    <br/>
-    Upload preview image: <input type="file" (change)="uploadPreviewImage($event.target.files)" />
-    <br/>
-    Upload image inside post:<input type="file" (change)="uploadImage($event.target.files)" />
+    <input class="title" placeholder="Title" [(ngModel)]="post.name" />
+    <div class="info-box">
+        <ng-container *ngIf="post.previewimage; else noPreview">
+            <img (click)="triggerImageBox()" class="preview-image" src="{{post.previewimage}}" alt="Preview Image" />    
+        </ng-container>
+        <ng-template #noPreview>
+            <div class="preview-image no-preview" (click)="triggerImageBox()">
+                No Preview
+            </div>
+        </ng-template>
+        <input #imageBox type="file" (change)="uploadPreviewImage($event.target.files)" />
+    </div>
+    <div class="info-box category">
+        <div class="subtitle">Select category:</div>
+        <ng-select [items]="categories" bindLabel="name" bindValue="id" [(ngModel)]="post.categoryid">
+        </ng-select>
+    </div>
+    <div class="info-box tag">
+        <div class="subtitle">Select tags:</div>
+        <ng-select [items]="tagSuggestions$ | async" bindLabel="name" [addTag]="true" [multiple]="true" [hideSelected]="true"
+            [loading]="people3Loading" [typeahead]="tagTypeahead" [(ngModel)]="post.tags"
+            (add)="createNewTag($event)"
+            >
+            <ng-template ng-tag-tmp let-search="searchTerm">
+                <b>Create new</b>: {{search}}
+            </ng-template>
+        </ng-select>
+    </div>
     <br />
-    <select [(ngModel)]="post.categoryid">
-        <option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
-    </select>
-    <br/>
+    <br />
     <div [froalaEditor]="options" [(froalaModel)]="post.content"></div>
     <!-- <div #content [innerHTML]="(post.content) | safeStyle" (blur)="updateContent()" contenteditable="true" style="height: 500px;">
     </div> -->
-    <button [disabled]="!isValidated()" (click)="save()">Save</button>
+    <button class="primary-black-button" [disabled]="!isValidated()" (click)="post.public = true; save()">Save and
+        Publish</button>
+    &nbsp;
+    <button class="secondary-black-button" [disabled]="!isValidated()" (click)="post.public = false; save()">Save as
+        draft</button>
 </div>

@@ -1,60 +1,100 @@
-import { PostService } from './../post.service';
-import { CategoryService } from './../category.service';
-import { Component } from "@angular/core";
+import { PostService } from "./../post.service";
+import { CategoryService } from "./../category.service";
+import { Component, ViewChild, ElementRef } from "@angular/core";
 import Category from "../category";
-import Post from '../post';
-import { FilterCategoryPipe } from '../filterCategory.pipe';
-import { PaginatePipe } from '../paginate.pipe';
-import { SearchPipe } from '../search.pipe';
+import Post from "../post";
+import { FilterCategoryPipe } from "../filterCategory.pipe";
+import { PaginatePipe } from "../paginate.pipe";
+import { SearchPipe } from "../search.pipe";
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition
+    // ...
+} from "@angular/animations";
 
 @Component({
     selector: "app-post-container",
     templateUrl: "./post-container.component.html",
-    styleUrls: ["./post-container.component.css"]
+    styleUrls: ["./post-container.component.css"],
+    animations: [
+        trigger('showHideSearch', [
+            state('cover', style({
+                width: '70px',
+                opacity: 1
+            })),
+            state('show', style({
+                display: 'inline-block',
+                width: '140px',
+                opacity: 1
+            })),
+            state('hide', style({
+                display: 'none',
+                width: '0',
+                opacity: 0
+            })),
+            transition('hide => show, hide => cover, cover => hide, show => hide', [
+                animate('.3s ease-in-out')
+            ])
+        ])
+        // animation triggers go here
+    ]
 })
 export class PostContainerComponent {
     private posts: Post[] = [];
     private filteredPosts: Post[] = [];
-    private pageSize = 3;
+    private paginatedPosts: Post[] = [];
+    private pageSize = 5;
     private page = 1;
     private search = "";
     private categoryId = 0;
     private categories: Category[] = [];
-    private total = 0;
+    private showSearch = false;
+    @ViewChild('searchInput') searchInput: ElementRef;
 
     constructor(
         private postService: PostService,
         private categoryService: CategoryService,
-        private paginatePipe: PaginatePipe,
         private searchPipe: SearchPipe,
         private filterCategoryPipe: FilterCategoryPipe
-
     ) {}
 
     ngOnInit(): void {
-        this.postService.getPosts().subscribe(posts => {this.posts = posts; this.refresh()});
+        this.postService.getPosts().subscribe(posts => {
+            this.posts = posts;
+            this.refilter();
+        });
         this.categoryService
             .getCategories()
             .subscribe(categories => (this.categories = categories));
     }
 
-    reset() {
-        const filtered = this.searchPipe.transform(this.filterCategoryPipe.transform(this.posts, this.categoryId), this.search);
-        this.total = filtered.length;
-        console.log(this.page);
-        this.filteredPosts = this.paginatePipe.transform(filtered, this.page, this.pageSize); 
+    refilter() {
+        this.filteredPosts = this.searchPipe.transform(
+            this.filterCategoryPipe.transform(this.posts, this.categoryId),
+            this.search
+        );
+        this.repaginate(1); // return to first page
     }
 
-    refresh(): void {
-        this.page = 1;
-        this.reset();
+    repaginate(page: number) {
+        this.page = page;
     }
 
-    pageCount(list: Post[]) {
-        return Math.ceil(list.length / this.pageSize);
+    onBlurSearch() {
+        if (!this.search) {
+            this.showSearch = false;
+        }
     }
 
-    pageList(count: number) {
-        return Array(Math.ceil(count / this.pageSize));
+    toggleSearch() {
+        this.showSearch = !this.showSearch;
+        if (this.showSearch) {
+            setTimeout(() => {
+                this.searchInput.nativeElement.focus();
+            }, 300);
+        }
     }
 }

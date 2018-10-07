@@ -1,7 +1,32 @@
 const db = require('../db');
 
+const _updateTags = async (id, tags) => {
+	console.log(tags);
+	const unknownTags = tags.filter(tag => !tag.id);
+	const knownTags = tags.filter(tag => tag.id);
+	for (let tag of unknownTags) {
+		try {
+			const { rows } = await db.query(`INSERT INTO Tag(Name) VALUES($1) RETURNING Id`, [tag.name]);
+			knownTags.push({
+				id: rows[0].id,
+				name: tag.name
+			});	
+		} catch (e) {
+			knownTags.push({
+				id: rows[0].id,
+				name: tag.name
+			});	
+		}
+	}
+	await db.query(`DELETE FROM PostTag WHERE postId = $1`, [id]);
+	for (let tag of knownTags) {
+		await db.query(`INSERT INTO PostTag VALUES($1, $2)`, [id, tag.id]);
+	}
+	return knownTags;
+};
+
 exports.create = async body => {
-	const { name, content, categoryid, authorid, previewimage } = body;
+	const { name, content, categoryid, authorid, previewimage, tags } = body;
 	const { rows } = await db.query(
 		'INSERT INTO Post(Name, Content, CategoryId, AuthorId, PreviewImage, DatePublished, Public) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING Id',
 		[
@@ -14,13 +39,15 @@ exports.create = async body => {
 			body.public
 		]
 	);
+	const id = rows[0].id;
+	_updateTags(id, tags);
 	return rows[0];
 };
 
 exports.getAllPublicPosts = async () => {
 	const {
 		rows
-	} = await db.query(`SELECT *, (SELECT COUNT(DISTINCT commenterId) FROM Comment WHERE postId = p.id) AS commentCount,
+	} = await db.query(`SELECT *, (SELECT COUNT(id) FROM Comment WHERE postId = p.id) AS commentCount,
             (SELECT COUNT(DISTINCT userId) FROM Favorite WHERE postId = p.id) AS favoriteCount,
             (SELECT Name FROM Category WHERE id = p.categoryId) AS categoryName,
             (SELECT Email FROM AppUser WHERE id = p.authorId) AS authorName
@@ -70,7 +97,7 @@ exports.getAllPostsByAuthor = async authorId => {
 };
 
 exports.getPrivatePostsByAuthor = async authorId => {
-	let query = `SELECT *, (SELECT COUNT(DISTINCT commenterId) FROM Comment WHERE postId = p.id) AS commentCount,
+	let query = `SELECT *, (SELECT COUNT(DISTINCT id) FROM Comment WHERE postId = p.id) AS commentCount,
         (SELECT COUNT(DISTINCT userId) FROM Favorite WHERE postId = p.id) AS favoriteCount 
      FROM Post p WHERE AuthorId = $1 AND Public = FALSE`;
 	const { rows } = await db.query(query, [authorId]);
@@ -134,17 +161,19 @@ exports.toggle = async (postId, isPublic) => {
 };
 
 exports.update = async body => {
-	const { id, name, content, categoryid, previewimage } = { ...body };
+	const { id, name, content, categoryid, previewimage, tags } = { ...body };
 	const { rows } = await db.query(
 		'UPDATE Post SET Name = $1, Content = $2, CategoryId = $3, Public = $4, PreviewImage = $5 WHERE id = $6',
 		[name, content, categoryid, body.public, previewimage, id]
 	);
+	_updateTags(id, tags);
 	return rows[0];
 };
 
 exports.getById = async id => {
 	const { rows } = await db.query(
 		`SELECT p.*, u.id AS authorid, u.email AS authorName, 
+		(SELECT COUNT(id) FROM Comment WHERE postId = p.id) AS commentCount,
                         (SELECT Name FROM Category WHERE id = p.categoryId) AS categoryName
             FROM Post p JOIN AppUser u ON p.authorId = u.id WHERE p.id = $1`,
 		[id]
@@ -211,7 +240,6 @@ const listToTree = list => {
         map.set(item.id, item);
         item.children = [];
     });
-    console.log(map);
     list.forEach(item => {
         if (item.parentid === -1) {
             roots.push(item);
@@ -224,7 +252,7 @@ const listToTree = list => {
 
 exports.getComments = async postId => {
 	const { rows } = await db.query(
-		'SELECT c.*, u.email as commenterName FROM Comment c JOIN AppUser u ON u.id = c.commenterId WHERE postId = $1',
+		'SELECT c.*, u.email as commenterName FROM Comment c JOIN AppUser u ON u.id = c.commenterId WHERE postId = $1 ORDER BY c.dateCommented',
 		[postId]
     );
     return listToTree(rows);
@@ -235,7 +263,7 @@ exports.getFavorites = async postId => {
 		'SELECT UserId FROM Favorite WHERE postId = $1',
 		[postId]
 	);
-	return rows;
+	return rows.map(row => row.userid);
 };
 
 exports.createComment = async (postId, content, commenterId, parentId) => {
@@ -258,5 +286,22 @@ exports.updateComment = async (commentId, content) => {
 		'UPDATE Comment SET Content = $1 WHERE Id = $2',
 		[content, commentId]
 	);
+	return rows[0];
+};
+
+exports.getTagSuggestions = async (phrase) => {
+	const likePhrase = `%${phrase.toLowerCase()}%`;
+	const { rows } = await db.query(
+		`SELECT * FROM tag t WHERE LOWER(name) LIKE '${likePhrase}' ORDER BY (SELECT COUNT(postid) FROM posttag WHERE tagid = t.id GROUP BY tagid)
+		LIMIT 3`
+	);
+	return rows;
+};
+
+exports.createTag = async (name) => {
+	const { rows } = await db.query(
+		'INSERT INTO Tag(Name) VALUES($1) RETURNING Id',
+		[name]
+    );
 	return rows[0];
 };

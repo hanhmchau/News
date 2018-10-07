@@ -13,6 +13,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { PaginationComponent } from './pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryService } from './category.service';
 import { PostService } from './post.service';
@@ -30,6 +31,15 @@ import { RegisterComponent } from './register/register.component';
 import "froala-editor/js/froala_editor.pkgd.min.js";
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AngularFontAwesomeModule } from "angular-font-awesome";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShortEmailPipe } from './short-email.pipe';
+import { BlurbifyPipe } from './blurbify.pipe';
+import { FromNowPipe } from './from-now.pipe';
+import { JdenticonHashDirective } from './jdenticon-hash.directive';
+import { NgSelectModule } from '@ng-select/ng-select';
+import {ForbiddenComponent} from './forbidden/forbidden.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import { FooterComponent } from './footer/footer.component';
 
 const tokenGetter = () => localStorage.getItem("token");
 
@@ -49,8 +59,16 @@ const tokenGetter = () => localStorage.getItem("token");
         SafeStylePipe,
         PaginatePipe,
         SearchPipe,
+        ShortEmailPipe,
         FilterCategoryPipe,
-        CommentComponent
+        BlurbifyPipe,
+        CommentComponent,
+        PaginationComponent,
+        JdenticonHashDirective,
+        FromNowPipe,
+        NotFoundComponent,
+        ForbiddenComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
@@ -65,7 +83,9 @@ const tokenGetter = () => localStorage.getItem("token");
         }),
         FroalaEditorModule.forRoot(),
         FroalaViewModule.forRoot(),
-        AngularFontAwesomeModule
+        AngularFontAwesomeModule,
+        BrowserAnimationsModule,
+        NgSelectModule
     ],
     exports: [],
     providers: [

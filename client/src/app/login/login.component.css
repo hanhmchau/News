@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 35px auto;
+    width: 300px;
+}
+
+.input {
+    margin: 0 0 35px 0;
+}
+
+input {
+    padding: 15px 5px 12px 0;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+}
+
+@-webkit-keyframes autofill {
+    to {
+        color: #666;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+input:focus, input:active {
+    border-bottom: 1px solid #333;
+    outline: none;
+}
+
+button {
+    margin: 25px 0 15px 0;
+    position: relative;
+    padding: 0.8em 2em 0.7em;
+    font-size: 0.85em;
+    line-height: 1.2;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    background: #333;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+a {
+    margin-top: 5px;
+    display: block;
+    text-align: center;
+    font-size: 13px;
+}
+
+.message {
+    text-align: center;
+    display: block;
+    padding: 10px;
+    background: #333;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,4 @@
+<div class="pagination" *ngIf="paginator().length > 1">
+    <button [ngClass]="{'fake-button': true, 'active': i === (activePage - 1)}" *ngFor="let item of paginator(); let i=index"
+        (click)="changePage(i+1)">{{(i+1)}}</button>
+</div>

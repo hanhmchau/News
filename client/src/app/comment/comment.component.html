@@ -1,13 +1,19 @@
-<div>
-    <div>{{comment.commenterName}}</div>
-    <div [innerHTML]="comment.content">
+<div class="comment-container">
+    <svg class="avatar" width="80" height="80" [jdenticonHash]="comment.commentername">
+    </svg>
+    <div [ngClass]="{'comment': true, 'by-author': currentUser && currentUser.id === comment.commenterid}">
+        <div class="dog-ear">&nbsp;</div>
+        <div class="header">
+            <div class="commenter">{{comment.commentername | shortEmail}}</div>
+            <div class="date-commented">{{comment.datecommented | fromNow}}</div>
+        </div>
+        <div class="content" [innerHTML]="comment.content">
+        </div>
+        <button *ngIf="currentUser" class="reply" (click)="showReplyBox=!showReplyBox">Reply</button>
     </div>
-    <button (click)="showReplyBox=!showReplyBox">Reply</button>
-    <div *ngIf="showReplyBox">
+    <div class="reply-box" *ngIf="showReplyBox">
         <div [froalaEditor]="options" [(froalaModel)]="newReplyContent"></div>
-        <button (click)="reply()">Submit</button>
+        <button class="black-button" (click)="reply()">Submit</button>
     </div>
-    <div style="padding: 30px;">
-        <app-comment *ngFor="let child of comment.children" [comment]="child"></app-comment>
-    </div>
+    <app-comment *ngFor="let child of comment.children" [currentUser]="currentUser" [comment]="child"></app-comment>
 </div>

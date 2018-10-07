@@ -25,21 +25,24 @@ export class ManagePostComponent {
     ) { }
 
     ngOnInit(): void {
-        this.route.paramMap.pipe(
-            switchMap((params: ParamMap) =>{
-                const id = params.get("id");
-                if (id) {
-                    return this.postService.getPrivatePostById(id);
+        if (this.router.url.indexOf('new-post') === -1) {
+            this.route.paramMap.pipe(
+                switchMap((params: ParamMap) =>{
+                    const id = params.get("id");
+                    if (id) {
+                        return this.postService.getPrivatePostById(id);
+                    }
+                    return of(null);
+                }),
+                catchError(() => of(null))
+            ).subscribe(post => {
+                console.log(post);
+                if (!post) {
+                    this.router.navigate(['/not-found']);
                 }
-                return of(null);
-            }),
-            catchError(() => of(null))
-        ).subscribe(post => {
-            if (!post) {
-                this.router.navigate(['/not-found']);
-            }
-            this.post = post;
-        });
+                this.post = post;
+            });    
+        }
     }
 
 }

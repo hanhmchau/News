@@ -5,6 +5,9 @@ import { Component, Input, ViewChild, ElementRef } from "@angular/core";
 import Category from "../category";
 import Post from "../post";
 import { Router } from "@angular/router";
+import { Observable, concat, of, Subject } from "rxjs";
+import Tag from "../tag";
+import { debounceTime, distinctUntilChanged, switchMap, catchError } from "rxjs/operators";
 
 @Component({
     selector: "app-editor",
@@ -14,8 +17,10 @@ import { Router } from "@angular/router";
 export class EditorComponent {
     @Input()
     post: Post = new Post();
+    @ViewChild('imageBox') imageBox: ElementRef;
     private categories: Category[];
     private options: Object = {
+        heightMin: 300,
         charCounterCount: true,
         imageUpload: true,
         imageUploadMethod: 'POST',
@@ -38,6 +43,8 @@ export class EditorComponent {
             "insertTable"
         ]
     };
+    private tagSuggestions$: Observable<Tag[]>;
+    private tagTypeahead = new Subject<string>();
 
     constructor(
         private postService: PostService,
@@ -50,26 +57,19 @@ export class EditorComponent {
             .getCategories()
             .subscribe(categories => (this.categories = categories));
         this.post = this.post || new Post();
+        this.loadTagSuggestions();
+    }
+
+    getCurrentCategoryName(): string {
+        const cat = this.categories.filter(c => c.id === this.post.categoryid);
+        if (cat.length) return cat[0].name;
     }
 
     uploadPreviewImage(files: FileList): void {
         if (files.length) {
             const image = files.item(0);
             this.postService.uploadImage(image).subscribe((data: any) => {
-                this.post.previewimage = data.fileName;
-            });
-        }
-    }
-
-    uploadImage(files: FileList): void {
-        if (files.length) {
-            const image = files.item(0);
-            this.postService.uploadImage(image).subscribe((data: any) => {
-                // const cursor = this.getCursorPosition();
-                // console.log(cursor);
-                // const innerHtml = this.contentBox.nativeElement.innerHTML;
-                // this.contentBox.nativeElement.innerHTML += this.getImageElement(data.fileName);
-                // this.contentBox.nativeElement.innerHTML = innerHtml.slice(0, cursor) + this.getImageUrl(data.fileName) + innerHtml.slice(cursor);
+                this.post.previewimage = data.link;
             });
         }
     }
@@ -84,12 +84,39 @@ export class EditorComponent {
     }
 
     save() {
-        // this.updateContent();
-        console.log(this.post);
         this.postService.saveOrUpdate(this.post).subscribe(data => {
             if (data && data.id) {
                 this.router.navigate([`/manage-post/${data.id}`]);
             }
         });
+    }
+
+    triggerImageBox() {
+        this.imageBox.nativeElement.click();
+    }
+
+    loadTagSuggestions() {
+        this.tagSuggestions$ = concat(
+            of([]),
+            this.tagTypeahead.pipe(
+                debounceTime(150),
+                distinctUntilChanged(),
+                switchMap(phrase => this.postService.getTagSuggestions(phrase).pipe(
+                    catchError(() => of([]))
+                ))
+            )
+        )
+    }
+
+    createNewTag(tag: any) {
+        if (!tag.id) {
+            this.postService.createNewTag(tag.name).subscribe(result => {
+                this.post.tags.push({
+                    id: result.id,
+                    name: tag.name
+                });
+                this.post.tags = this.post.tags.filter(t => t !== tag);
+            });
+        }
     }
 }

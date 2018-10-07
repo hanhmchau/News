@@ -1,0 +1,22 @@
+
+.pagination {
+    text-align: center;
+}
+
+.pagination button {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background: lightgray;
+    text-align: center;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.pagination button.active {
+    background: rgba(0,0,0,0.7);
+    color: lightgray;
+}

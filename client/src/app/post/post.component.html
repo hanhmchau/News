@@ -1,16 +1,36 @@
-<div *ngIf="post">
-    <h5>{{post.name}}</h5>
-    <span>{{post.categoryname}}</span>
-    <img src="{{post.previewimage}}" >
-    <span>{{post.authorname}}</span>
-    <div [innerHTML]="post.content | safeStyle">
+<div class="post" *ngIf="post">
+    <a routerLink="/post/{{post.id}}" class="title">{{post.name}}</a>
+    <div class="subtitle">
+        posted in <span>{{post.categoryname}}</span>
+        on <span>{{post.datepublished | date:'longDate'}}</span>
+        by <span>{{post.authorname | shortEmail}}</span>
+        <ng-container *ngIf="post.commentcount > 0">
+            &nbsp;
+            <fa name="comment"></fa>
+            &nbsp;
+            {{post.commentcount}} {{(post.commentcount > 1 ? 'comments' : 'comment')}}
+        </ng-container>
+        <ng-container *ngIf="post.favoritecount > 0">
+            &nbsp;
+            <fa name="heart"></fa>
+            &nbsp;
+            {{post.favoritecount}} {{(post.favoritecount > 1 ? 'favorites' : 'favorite')}}
+        </ng-container>
+
     </div>
-    <a routerLink="/post/{{post.id}}"></a>
-        <br />
-    <div>
-        <span *ngFor="let tag of post.tags">{{tag.name}}</span>
+    <div class="preview-image" *ngIf="post.previewimage">
+        <img src="{{post.previewimage}}">
     </div>
-    <div>{{post.favoritecount}} :heart:</div>
-    <a routerLink="/post/{{post.id}}">Read</a>
-    <a routerLink="/manage-post/{{post.id}}">Edit</a>
+    <div class="content">
+        {{post.content | blurbify}}
+    </div>
+    <a class="continue-reading" routerLink="/post/{{post.id}}">
+        Continue Reading
+        <fa name="long-arrow-right"></fa>
+    </a>
+    <a class="edit" routerLink="/manage-post/{{post.id}}">
+        Manage
+        <fa name="long-arrow-right"></fa>
+    </a>
+    <!-- <a routerLink="/manage-post/{{post.id}}">Edit</a> -->
 </div>

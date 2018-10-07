@@ -29,8 +29,10 @@ export class HeaderComponent {
         this.userService.getCurrentUser()
             .subscribe(user => {
                 this.user = user;
-                this.shortEmail = this.shorten(user.email);
-                this.isJournalist = user.role === consts.roles.JOURNALIST;
+                if (user) {
+                    this.shortEmail = this.shorten(user.email);
+                    this.isJournalist = user.role === consts.roles.JOURNALIST;    
+                }
             });
     }
 

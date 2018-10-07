@@ -1,3 +1,101 @@
-.favorited {
-    color: red;
+img {
+    max-width: 300px;
+    max-height: 300px;
+    margin-bottom: 20px;
+}
+
+.post {
+    margin: 70px 0 100px 0;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.9em;
+    font-weight: 500;
+    margin: 20px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: darkgray;
+    margin: 30px;
+}
+
+.subtitle span {
+    color: #333;
+    text-decoration: underline dotted;
+}
+
+.content {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.tag .name {
+    text-decoration: underline dotted;
+}
+
+.tag-section {
+    margin-top: 60px;
+}
+
+.favorite-button {
+    padding: 12px 18px;
+    background: none;
+    border: none;
+    border-bottom: 1px dotted gray;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.favorite-button:hover {
+    background-color: #f7f7f7;
+}
+
+.you-liked-this {
+    font-size: 14px;
+}
+
+.favorite-count {
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.comment-section {
+    margin: 4em 0;
+}
+
+.comment-section .title {
+    margin: 2em 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.comment-section .editor {
+    width: 75%;
+}
+
+.comment-section .submit {
+    margin-top: 20px;
+    position: relative;
+    padding: 0.8em 2em 0.7em;
+    font-size: 0.9em;
+    line-height: 1.2;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    background: #333;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.other-comments {
+    margin-top: 80px;
+}
+
+.other-comments .title {
+    margin-bottom: 50px;
 }

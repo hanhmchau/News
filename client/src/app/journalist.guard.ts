@@ -15,8 +15,12 @@ export class JournalistGuard implements CanActivate {
     ): Observable<boolean> | Promise<boolean> | boolean {
         return this.userService.getCurrentUser()
         .pipe(
-            tap(canActivate => {
-                if (!canActivate) {
+            tap(user => {
+                if (!user) {
+                    this.router.navigate(['/login']);
+                    return;
+                }
+                if (user.role !== consts.roles.JOURNALIST) {
                     this.router.navigate(['/forbidden']);
                 }
             }),

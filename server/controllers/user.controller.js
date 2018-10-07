@@ -46,8 +46,8 @@ exports.register = async (req, res) => {
 };
 
 exports.isAuthenticated = async (req, res, next) => {
-	const token = req.get('Authorization').split(' ')[1];
 	try {
+		const token = req.get('Authorization').split(' ')[1];
 		const decoded = jwt.verify(token, process.env.SECRET);
 		req.user = decoded.id;
 		next();
@@ -57,8 +57,8 @@ exports.isAuthenticated = async (req, res, next) => {
 };
 
 exports.isJournalist = async (req, res, next) => {
-	const token = req.get('Authorization').split(' ')[1];
 	try {
+		const token = req.get('Authorization').split(' ')[1];
 		const decoded = jwt.verify(token, process.env.SECRET);
 		const { role } = await userService.getRole(decoded.id);
 		if (role === roles.JOURNALIST) {
@@ -73,8 +73,8 @@ exports.isJournalist = async (req, res, next) => {
 };
 
 exports.isProfileOwner = async (req, res, next) => {
-	const token = req.get('Authorization').split(' ')[1];
 	try {
+		const token = req.get('Authorization').split(' ')[1];
 		const decoded = jwt.verify(token, process.env.SECRET);
 		const userId = req.params.userId || req.params.id;
 		if (decoded.id.toString() === userId) {

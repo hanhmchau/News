@@ -1,14 +1,13 @@
 .categories {
     text-align: center;
     padding: 5px;
-    border-top: 1px dotted lightgray;
     border-bottom: 1px dotted lightgray;
 }
 
 .categories button {
     display: inline-block;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .categories button.active {
@@ -23,20 +22,21 @@
     cursor: pointer;
 }
 
-.pagination {
-    text-align: center;
+.search {
+    color: #333;
+    border: none;
+    border-bottom: 1px dotted #ccc;
+    font-size: .9em;
+    padding: 3px 23px 3px 0;
+    outline: 0;
 }
 
-.pagination button {
-    border-radius: 50%;
-    height: 45px;
-    width: 45px;
-    background: lightgray;
-    text-align: center;
-    margin: 0 8px;
+.footer {
+    position: relative;
 }
 
-.pagination button.active {
-    background: #C30;
-    color: lightgray;
+.page-size {
+    position: absolute;
+    right: 0;
+    font-size: 13px;
 }

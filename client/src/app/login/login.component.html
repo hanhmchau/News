@@ -1,7 +1,12 @@
-<span *ngIf="invalidated">Please fill in all fields.</span>
-<span *ngIf="logInFail">Your credentials are invalid.</span>
-Email: <input name="email" [(ngModel)]="email">
-<br/>
-Password: <input name="password" type="password" [(ngModel)]="password">
-<button (click)="login()" name="login">Login</button>
-<a routerLink="/register">Register</a>
+<div class="container">
+    <div class="message" *ngIf="invalidated">Please fill in all fields.</div>
+    <div class="message" *ngIf="logInFail">Your credentials are invalid.</div>
+    <div class="input">
+        <input spellcheck="false" name="email" [(ngModel)]="email" placeholder="Email">
+    </div>
+    <div class="input">
+        <input spellcheck="false" name="password" type="password" [(ngModel)]="password" placeholder="Password">
+    </div>
+    <button (click)="login()" name="login">Login</button>
+    <a routerLink="/register">Don't have an account? Sign up</a>
+</div>

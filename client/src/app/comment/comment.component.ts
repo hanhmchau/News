@@ -14,6 +14,7 @@ import Comment from '../comment';
 })
 export class CommentComponent {
     @Input() comment: Comment;
+    @Input() currentUser: User;
     private newReplyContent = "";
     private showReplyBox = false;
     private options: Object = {
@@ -32,7 +33,13 @@ export class CommentComponent {
     reply() {
         if (this.newReplyContent) {
             this.postService.comment(this.comment.postid, this.comment.id, this.newReplyContent)
-                .subscribe(c => this.comment.children.push(c));
+                .subscribe(comment => {
+                    comment.commentername = this.currentUser.email;
+                    comment.datecommented = new Date();
+                    comment.children = [];
+                    this.comment.children.push(comment);
+                    this.newReplyContent = '';
+                });
         }
     }
 }

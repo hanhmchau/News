@@ -7,6 +7,8 @@ import { ManagePostComponent } from './manage-post/manage-post.component';
 import { RegisterComponent } from './register/register.component';
 import { NoAuthGuard } from './noauth.guard';
 import { JournalistGuard } from './journalist.guard';
+import {ForbiddenComponent} from './forbidden/forbidden.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -37,6 +39,14 @@ const routes: Routes = [
         path: 'register',
         component: RegisterComponent,
         canActivate: [NoAuthGuard]
+    },
+    {
+        path: 'forbidden',
+        component: ForbiddenComponent
+    },
+    {
+        path: '**',
+        component: NotFoundComponent
     }
     // {
     //     path: "user/:id",

@@ -1,26 +1,66 @@
 <div *ngIf="post">
-    <h5>{{post.name}}</h5>
-    <span>{{post.categoryname}}</span>
-    <br />
-    <span>{{post.authorname}}</span>
-    <br />
-    <br /><br /><br />
-    <div [innerHTML]="post.content | safeStyle">
+    <div class="post" *ngIf="post">
+        <div class="title">{{post.name}}</div>
+        <div class="subtitle">
+            posted in <span>{{post.categoryname}}</span>
+            on <span>{{post.datepublished | date:'longDate'}}</span>
+            by <span>{{post.authorname | shortEmail}}</span>
+            <ng-container *ngIf="post.commentcount > 0">
+                &nbsp;
+                <fa name="comment"></fa>
+                &nbsp;
+                {{post.commentcount}} {{(post.commentcount > 1 ? 'comments' : 'comment')}}
+            </ng-container>
+            <ng-container *ngIf="post.favoritecount > 0">
+                &nbsp;
+                <fa name="heart"></fa>
+                &nbsp;
+                {{post.favoritecount}} {{(post.favoritecount > 1 ? 'favorites' : 'favorite')}}
+            </ng-container>
+
+        </div>
+        <div class="preview-image" *ngIf="post.previewimage">
+            <img src="{{post.previewimage}}">
+        </div>
+        <div class="content" [innerHTML]="post.content | safeStyle">
+        </div>
+        <div class="tag-section">
+            <fa name="tag"></fa>
+            <span class="tag" *ngFor="let tag of post.tags; let i=index">
+                <span class="name">
+                    {{tag.name}}
+                </span>
+                <span *ngIf="i<post.tags.length-1">
+                    ,
+                </span>
+            </span>
+        </div>
+        <!-- <a routerLink="/manage-post/{{post.id}}">Edit</a> -->
     </div>
-    <div>
-        <span *ngFor="let tag of post.tags">{{tag.name}}</span>
+    <div class="favorite-section">
+        <button class="favorite-button" (click)="toggleFavorite()">
+            <fa name="heart"></fa>
+            <span class="favorite-count">{{post.favorites.length}}</span>
+        </button>
+        <span class="you-liked-this" *ngIf="youLikedThis">You liked this.</span>
     </div>
-    <ng-container *ngIf="post.favorites.indexOf(user.id) > -1; else favorited">
-        <button (click)="unfavorite()">Unfavorite</button>
-    </ng-container>
-    <ng-template #favorited>
-        <button (click)="favorite()">Favorite</button>
-    </ng-template>
-    <span>{{post.favorites.length}} liked this</span>
-    <app-comment *ngFor="let comment of post.comments" [comment]="comment"></app-comment>
-    <button (click)="showReplyBox=!showReplyBox">Reply</button>
-    <div *ngIf="showReplyBox">
-        <div [froalaEditor]="options" [(froalaModel)]="newReplyContent"></div>
-        <button (click)="reply()">Submit</button>
+    <div class="comment-section">
+        <div class="title">Create your Reply</div>
+        <ng-container *ngIf="user; else notLoggedIn">
+            <div class="editor">
+                <div #editor [froalaEditor]="options" [(froalaModel)]="newReplyContent"></div>
+                <button class="submit" (click)="reply()">Post Comment</button>
+            </div>    
+        </ng-container>
+        <ng-template #notLoggedIn>
+            <a routerLink="/login">Log in</a> to join the discussion.
+        </ng-template>
+        <div class="other-comments" *ngIf="post.comments.length > 0">
+            <div class="title">
+                {{post.commentcount}} Comment{{post.commentcount > 1 ? 's' : ''}}
+                <span class="subtitle">{{post.name}}</span>
+            </div>
+            <app-comment *ngFor="let comment of post.comments" [currentUser]="user" [comment]="comment"></app-comment>
+        </div>
     </div>
 </div>

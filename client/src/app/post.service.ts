@@ -1,11 +1,13 @@
-import { switchMap } from 'rxjs/operators';
+import { switchMap, zip } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import consts from '../consts';
 import Category from './category';
 import Post from './post';
+import Comment from './comment';
+import Tag from './tag';
 
 @Injectable({
     providedIn: "root"
@@ -36,8 +38,8 @@ export class PostService {
         return this.http.post<Post>(`${this.postUrl}/preview-image`, formData);
     }
 
-    favorite(postId: number, userId: number): any {
-        return this.http.post<Post[]>(`${this.postUrl}/${postId}/favorite/${userId}`, {});
+    favorite(postId: number, userId: number): Observable<any> {
+        return this.http.post<any>(`${this.postUrl}/${postId}/favorite/${userId}`, {});
     }
 
     unfavorite(postId: number, userId: number): any {
@@ -58,11 +60,24 @@ export class PostService {
         );
     }
 
-    comment(postId: number, parentId: number, content: string): Observable<any> {
-        return this.http.post<Post[]>(`${this.postUrl}/${postId}/comment`, {
+    comment(postId: number, parentId: number, content: string): Observable<Comment> {
+        return this.http.post<Comment>(`${this.postUrl}/${postId}/comment`, {
             postId,
             parentId,
             content
+        });
+    }
+
+    getTagSuggestions(phrase: string): Observable<Tag[]> {
+        const params = new HttpParams().set('phrase', phrase);
+        return this.http.get<Tag[]>(`${this.postUrl}/tags`, {
+            params
+        });
+    }
+
+    createNewTag(name: string): Observable<Tag> {
+        return this.http.post<Tag>(`${this.postUrl}/tags`, {
+            name
         });
     }
 }

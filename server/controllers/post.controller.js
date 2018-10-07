@@ -73,16 +73,20 @@ exports.delete = async (req, res) => {
 };
 
 exports.favorite = async (req, res) => {
-    const { postId, userId } = { ...req.body };
-    const post = await postService.favorite(postId, userId);
-	res.json({
-		post
-	});
+    const { id, userId } = { ...req.params };
+    try {
+        const post = await postService.favorite(id, userId);
+        res.json({
+            post
+        });    
+    } catch (e) {
+        res.sendStatus(400);
+    }
 };
 
 exports.unfavorite = async (req, res) => {
-    const { postId, userId } = { ...req.body };
-    const post = await postService.favorite(postId, userId);
+    const { id, userId } = { ...req.params };
+    const post = await postService.unfavorite(id, userId);
     res.json({
         post
     });
@@ -124,4 +128,19 @@ exports.deleteComment = async (req, res) => {
     const { commentId } = { ...req.body };
     await postService.deleteComment(commentId);
     return res.sendStatus(204);
+};
+
+exports.getTagSuggestions = async (req, res) => {
+    const phrase = req.query.phrase;
+    const tags = await postService.getTagSuggestions(phrase);
+    return res.json(tags);
+};
+
+exports.createTag = async (req, res) => {
+    const name = req.body.name;
+    console.log(name);
+    const tag = await postService.createTag(name);
+    return res.json({
+        id: tag.id
+    });
 };
