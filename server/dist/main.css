@@ -1,0 +1,126 @@
+* {
+    font-family: "Roboto";
+    font-weight: 300;
+    color: #333;
+}
+
+/* roboto-100 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 100;
+    src: local("Roboto Thin"), local("Roboto-Thin"),
+        url(987b84570ea69ee660455b8d5e91f5f1.woff2) format("woff2"),
+        
+            url(e9dbbe8a693dd275c16d32feb101f1c1.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-100italic - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 100;
+    src: local("Roboto Thin Italic"), local("Roboto-ThinItalic"),
+        url(6232f43d15b0e7a0bf0fe82e295bdd06.woff2) format("woff2"),
+        
+            url(d704bb3d579b7d5e40880c75705c8a71.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-300 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Light"), local("Roboto-Light"),
+        url(55536c8e9e9a532651e3cf374f290ea3.woff2) format("woff2"),
+        
+            url(a1471d1d6431c893582a5f6a250db3f9.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-300 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Light"), local("Roboto-Light"),
+        url(55536c8e9e9a532651e3cf374f290ea3.woff2) format("woff2"),
+        
+            url(a1471d1d6431c893582a5f6a250db3f9.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-300italic - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 300;
+    src: local("Roboto Light Italic"), local("Roboto-LightItalic"),
+        url(d69924b98acd849cdeba9fbff3f88ea6.woff2) format("woff2"),
+        
+            url(210a7c781f5a354a0e4985656ab456d9.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-regular - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"), local("Roboto-Regular"),
+        url(5d4aeb4e5f5ef754e307d7ffaef688bd.woff2) format("woff2"),
+        
+            url(bafb105baeb22d965c70fe52ba6b49d9.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-italic - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 400;
+    src: local("Roboto Italic"), local("Roboto-Italic"),
+        url(d8bcbe724fd6f4ba44d0ee6a2675890f.woff2) format("woff2"),
+        
+            url(9680d5a0c32d2fd084e07bbc4c8b2923.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-500 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    src: local("Roboto Medium"), local("Roboto-Medium"),
+        url(285467176f7fe6bb6a9c6873b3dad2cc.woff2) format("woff2"),
+        
+            url(de8b7431b74642e830af4d4f4b513ec9.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-500italic - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 500;
+    src: local("Roboto Medium Italic"), local("Roboto-MediumItalic"),
+        url(510dec37fa69fba39593e01a469ee018.woff2) format("woff2"),
+        
+            url(ffcc050b2d92d4b14a4fcb527ee0bcc8.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Roboto Bold"), local("Roboto-Bold"),
+        url(037d830416495def72b7881024c14b7b.woff2) format("woff2"),
+        
+            url(cf6613d1adf490972c557a8e318e0868.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-700italic - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: 700;
+    src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"),
+        url(010c1aeee3c6d1cbb1d5761d80353823.woff2) format("woff2"),
+        
+            url(846d1890aee87fde5d8ced8eba360c3a.woff) format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
