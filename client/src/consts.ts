@@ -1,5 +1,5 @@
 const consts = {
-    API: 'http://localhost:3000/api',
+    API: process.env.RUN_AT === 'server' ? '/api' : 'http://localhost:3000/api',
     roles: {
         READER: 0,
         JOURNALIST: 1

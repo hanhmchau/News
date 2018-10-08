@@ -12,7 +12,7 @@ app.use(express.static(dist));
 
 app.get("*", function(req, res) {
     res.sendFile(dist + "/index.html", null, function(err){
-        res.json(err);
+        if (err) console.log(err);
     });
 });
 

@@ -25,7 +25,16 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/api', indexRouter);
 
-const dist = path.join(__dirname, '/dist');
+const dist = path.resolve(__dirname, "dist");
+
 app.use(express.static(dist));
+
+// send the user to index html page inspite of the url
+
+app.get("*", function (req, res) {
+    res.sendFile(dist + "/index.html", null, function (err) {
+        if (err) console.log(err);
+    });
+});
 
 module.exports = app;
