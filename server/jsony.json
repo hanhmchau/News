@@ -1,0 +1,426 @@
+{
+	"rss": {
+		"$": {
+			"version": "2.0",
+			"xmlns:slash": "http://purl.org/rss/1.0/modules/slash/"
+		},
+		"channel": [
+			{
+				"title": ["Tin mới nhất - VnExpress RSS"],
+				"description": ["VnExpress RSS"],
+				"image": [
+					{
+						"url": [
+							"https://s.vnecdn.net/vnexpress/i/v20/logos/vne_logo_rss.png"
+						],
+						"title": [
+							"Tin nhanh VnExpress - Đọc báo, tin tức online 24h"
+						],
+						"link": ["https://vnexpress.net"]
+					}
+				],
+				"pubDate": ["Mon, 08 Oct 2018 16:46:13 +0700"],
+				"generator": ["VnExpress"],
+				"link": ["https://vnexpress.net/rss/tin-moi-nhat.rss"],
+				"item": [
+					{
+						"title": [
+							"Trẻ em Indonesia trở lại trường học sau động đất, sóng thần"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/the-gioi/cuoc-song-do-day/tre-em-indonesia-tro-lai-truong-hoc-sau-dong-dat-song-than-3820862.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/20181008T061117Z406899028RC115-9211-3423-1538989865_180x108.jpg\" ></a></br>Học sinh ở thành phố Palu hôm nay bắt đầu quay lại trường để dọn dẹp và kiểm tra sĩ số, 10 ngày sau thảm họa kép. "
+						],
+						"pubDate": ["Mon, 08 Oct 2018 16:13:40 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/the-gioi/cuoc-song-do-day/tre-em-indonesia-tro-lai-truong-hoc-sau-dong-dat-song-than-3820862.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/the-gioi/cuoc-song-do-day/tre-em-indonesia-tro-lai-truong-hoc-sau-dong-dat-song-than-3820862.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Thiệt hại 10 ngày sau thảm họa động đất, sóng thần Indonesia"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/infographics/the-gioi/thiet-hai-10-ngay-sau-tham-hoa-dong-dat-song-than-indonesia-3820826.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/thiet-hai-trong-10-ngay-sau-tham-hoa-dong-dat-song-than-indonesia-1538985763_180x108.jpg\" ></a></br>Gần 2.000 người thiệt mạng và khoảng 5.000 người vẫn mất tích sau trận động đất mạnh 7,5 độ gây sóng thần tại đảo Sulawesi, Indonesia."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 16:11:01 +0700"],
+						"link": [
+							"https://vnexpress.net/infographics/the-gioi/thiet-hai-10-ngay-sau-tham-hoa-dong-dat-song-than-indonesia-3820826.html"
+						],
+						"guid": [
+							"https://vnexpress.net/infographics/the-gioi/thiet-hai-10-ngay-sau-tham-hoa-dong-dat-song-than-indonesia-3820826.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Những kỹ năng nhà tuyển dụng cần nhất ở sinh viên"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/giao-duc/nhung-ky-nang-nha-tuyen-dung-can-nhat-o-sinh-vien-3820895.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/nha-tuyen-dung-9422-1538988821_180x108.jpg\" ></a></br>Kỹ năng ngôn ngữ hay đàm phán không phải điều nhiều nhà tuyển dụng cần nhất ở một sinh viên mới ra trường."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 16:10:10 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/giao-duc/nhung-ky-nang-nha-tuyen-dung-can-nhat-o-sinh-vien-3820895.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/giao-duc/nhung-ky-nang-nha-tuyen-dung-can-nhat-o-sinh-vien-3820895.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Thủ phạm lừa đảo đã đi tù, làm sao gia đình tôi đòi được tiền?"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/phap-luat/tu-van/thu-pham-lua-dao-da-di-tu-lam-sao-gia-dinh-toi-doi-duoc-tien-3785956.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/cauhoi-1538989737-9619-1538989740_180x108.jpg\" ></a></br>Gia đình tôi là nạn nhân của hai kẻ lừa bán căn hộ chung cư nên bị mất nửa số tiền mua nhà khi giao trước cho chúng."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 16:01:56 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/phap-luat/tu-van/thu-pham-lua-dao-da-di-tu-lam-sao-gia-dinh-toi-doi-duoc-tien-3785956.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/phap-luat/tu-van/thu-pham-lua-dao-da-di-tu-lam-sao-gia-dinh-toi-doi-duoc-tien-3785956.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Cá hổ khổng lồ - hung thần ăn thịt trên sông Congo"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/khoa-hoc/ca-ho-khong-lo-hung-than-an-thit-tren-song-congo-3820746.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/VNETigerfish-1538986087-7232-1538986504_180x108.jpg\" ></a></br>Cá hổ khổng lồ sống ở hạ lưu sông Congo dài bằng một người đàn ông, có hàm răng nhọn hoắt, sẵn sàng đoạt mạng bất cứ con mồi nào."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 16:00:00 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/khoa-hoc/ca-ho-khong-lo-hung-than-an-thit-tren-song-congo-3820746.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/khoa-hoc/ca-ho-khong-lo-hung-than-an-thit-tren-song-congo-3820746.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Vingroup retail arm acquires Vietnamese supermarket chain"
+						],
+						"description": [
+							"<a href=\"https://e.vnexpress.net/news/business/companies/vingroup-retail-arm-acquires-vietnamese-supermarket-chain-3820825.html\"><img width=130 height=100 src=\"https://i-english.vnecdn.net/2018/10/08/800PeopleshopataFivimartsuperm-3714-5333-1538985741_180x108.jpg\" ></a></br>VinCommerce, owner of the largest Vietnamese retail outlet chain, has bought out competitor supermarket chain Fivimart."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:53:35 +0700"],
+						"link": [
+							"https://e.vnexpress.net/news/business/companies/vingroup-retail-arm-acquires-vietnamese-supermarket-chain-3820825.html"
+						],
+						"guid": [
+							"https://e.vnexpress.net/news/business/companies/vingroup-retail-arm-acquires-vietnamese-supermarket-chain-3820825.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Tự sửa cầu thang cho hợp phong thủy, gia chủ ngã đến bó bột"
+						],
+						"description": [
+							"<a href=\"https://doisong.vnexpress.net/tin-tuc/nha/tu-van-nha-dep/tu-sua-cau-thang-cho-hop-phong-thuy-gia-chu-nga-den-bo-bot-3820738.html\"><img width=130 height=100 src=\"https://i-giadinh.vnecdn.net/2018/10/08/ct-1538986245-9137-1538986784_180x108.jpg\" ></a></br>Thấy số bậc cầu thang nhà mình là 63, ông Hoàng làm thêm 2 bậc để tránh vận xui. Không ngờ cả ông và con đều ngã đến bó bột."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:50:57 +0700"],
+						"link": [
+							"https://doisong.vnexpress.net/tin-tuc/nha/tu-van-nha-dep/tu-sua-cau-thang-cho-hop-phong-thuy-gia-chu-nga-den-bo-bot-3820738.html"
+						],
+						"guid": [
+							"https://doisong.vnexpress.net/tin-tuc/nha/tu-van-nha-dep/tu-sua-cau-thang-cho-hop-phong-thuy-gia-chu-nga-den-bo-bot-3820738.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Melania phản bác lời chỉ trích 'đội mũ kiểu thực dân' khi thăm châu Phi"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/the-gioi/melania-phan-bac-loi-chi-trich-doi-mu-kieu-thuc-dan-khi-tham-chau-phi-3820889.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/1-1538988461-6860-1538988546_180x108.jpg\" ></a></br>Đệ nhất phu nhân Mỹ cho rằng mọi người nên chú ý đến những gì bà làm, hơn là những thứ bà mặc trong chuyến công du châu Phi."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:49:29 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/the-gioi/melania-phan-bac-loi-chi-trich-doi-mu-kieu-thuc-dan-khi-tham-chau-phi-3820889.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/the-gioi/melania-phan-bac-loi-chi-trich-doi-mu-kieu-thuc-dan-khi-tham-chau-phi-3820889.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": ["Đi bộ và uống sữa giúp giảm lão hóa"],
+						"description": [
+							"<a href=\"https://suckhoe.vnexpress.net/tin-tuc/tu-van/di-bo-va-uong-sua-giup-giam-lao-hoa-3815612.html\"><img width=130 height=100 src=\"https://i-suckhoe.vnecdn.net/2018/10/08/Running-Form-1-6334-1538987350_180x108.jpg\" ></a></br>Duy trì việc tập thể dục kết hợp uống sữa giúp tăng khối cơ, giảm lão hóa và bệnh Alzheimer."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:47:49 +0700"],
+						"link": [
+							"https://suckhoe.vnexpress.net/tin-tuc/tu-van/di-bo-va-uong-sua-giup-giam-lao-hoa-3815612.html"
+						],
+						"guid": [
+							"https://suckhoe.vnexpress.net/tin-tuc/tu-van/di-bo-va-uong-sua-giup-giam-lao-hoa-3815612.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Smartphone mới của Bkav sẽ được gọi là Bphone 3"
+						],
+						"description": [
+							"<a href=\"https://sohoa.vnexpress.net/tin-tuc/san-pham/smartphone-moi-cua-bkav-se-duoc-goi-la-bphone-3-3820809.html\"><img width=130 height=100 src=\"https://i-sohoa.vnecdn.net/2018/10/08/Bphone-3-2221-1538984808_180x108.jpg\" ></a></br>Hình ảnh bên trong gian trưng bày smartphone cho thấy Bkav đã chọn cái tên \"tạm gọi\" Bphone 3 thành tên chính thức của sản phẩm. "
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:40:00 +0700"],
+						"link": [
+							"https://sohoa.vnexpress.net/tin-tuc/san-pham/smartphone-moi-cua-bkav-se-duoc-goi-la-bphone-3-3820809.html"
+						],
+						"guid": [
+							"https://sohoa.vnexpress.net/tin-tuc/san-pham/smartphone-moi-cua-bkav-se-duoc-goi-la-bphone-3-3820809.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Hàng nghìn người bắt cá dưới đập thủy điện Trị An"
+						],
+						"description": [
+							"<a href=\"https://video.vnexpress.net/tin-tuc/xa-hoi/hang-nghin-nguoi-bat-ca-duoi-dap-thuy-dien-tri-an-3820830.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/catrian-1538987517-7477-1538987916_180x108.jpg\" ></a></br>Ngày 8/10, nhiều người tràn xuống chân đập hồ Trị An (Đồng Nai) giăng lưới, quăng chài... bắt cá khủng sau khi hồ đóng đập xả lũ."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:39:22 +0700"],
+						"link": [
+							"https://video.vnexpress.net/tin-tuc/xa-hoi/hang-nghin-nguoi-bat-ca-duoi-dap-thuy-dien-tri-an-3820830.html"
+						],
+						"guid": [
+							"https://video.vnexpress.net/tin-tuc/xa-hoi/hang-nghin-nguoi-bat-ca-duoi-dap-thuy-dien-tri-an-3820830.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Bệnh viện dã chiến Việt Nam ở khu nhà container tại Nam Sudan"
+						],
+						"description": [
+							"<a href=\"https://video.vnexpress.net/tin-tuc/600s-thoi-su/benh-vien-da-chien-viet-nam-o-khu-nha-container-tai-nam-sudan-3820806.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/434875973147097893287975846506-6720-4614-1538989054_180x108.jpg\" ></a></br>32 thành viên Bệnh viện dã chiến của Việt Nam nhận bàn giao khu nhà tại Bentiu (Nam Sudan) từ phía Anh."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:36:54 +0700"],
+						"link": [
+							"https://video.vnexpress.net/tin-tuc/600s-thoi-su/benh-vien-da-chien-viet-nam-o-khu-nha-container-tai-nam-sudan-3820806.html"
+						],
+						"guid": [
+							"https://video.vnexpress.net/tin-tuc/600s-thoi-su/benh-vien-da-chien-viet-nam-o-khu-nha-container-tai-nam-sudan-3820806.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Đường 2.700 tỷ đồng nối Hà Nội - Hòa Bình trước ngày thông xe"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/photo/giao-thong/duong-2-700-ty-dong-noi-ha-noi-hoa-binh-truoc-ngay-thong-xe-3820747.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/duong-6-1538975956_180x108.jpg\" ></a></br>Sau hơn 4 năm thi công, tuyến đường nối Hòa Lạc (Hà Nội) và TP Hòa Bình (tỉnh Hòa Bình) dài hơn 25 km chuẩn bị thông xe ngày 10/10."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:34:22 +0700"],
+						"link": [
+							"https://vnexpress.net/photo/giao-thong/duong-2-700-ty-dong-noi-ha-noi-hoa-binh-truoc-ngay-thong-xe-3820747.html"
+						],
+						"guid": [
+							"https://vnexpress.net/photo/giao-thong/duong-2-700-ty-dong-noi-ha-noi-hoa-binh-truoc-ngay-thong-xe-3820747.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Quang Hải muốn mang chức vô địch AFF Cup trở lại Việt Nam"
+						],
+						"description": [
+							"<a href=\"https://thethao.vnexpress.net/tin-tuc/bong-da-trong-nuoc/quang-hai-muon-mang-chuc-vo-dich-aff-cup-tro-lai-viet-nam-3820817.html\"><img width=130 height=100 src=\"https://i-thethao.vnecdn.net/2018/10/08/quang-hai-1732-1538987350_180x108.jpg\" ></a></br>Tiền vệ 21 tuổi quyết tâm giúp đội nhà lần thứ hai đăng quang ở đấu trường khu vực."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:32:14 +0700"],
+						"link": [
+							"https://thethao.vnexpress.net/tin-tuc/bong-da-trong-nuoc/quang-hai-muon-mang-chuc-vo-dich-aff-cup-tro-lai-viet-nam-3820817.html"
+						],
+						"guid": [
+							"https://thethao.vnexpress.net/tin-tuc/bong-da-trong-nuoc/quang-hai-muon-mang-chuc-vo-dich-aff-cup-tro-lai-viet-nam-3820817.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Môtô nước có thể bay lộn vòng ở độ cao 9 mét"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/khoa-hoc/moto-nuoc-co-the-bay-lon-vong-o-do-cao-9-met-3820572.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/Motonuocset-1538985008-5932-1538986010_180x108.jpg\" ></a></br>Công ty Pháp chế tạo mẫu môtô nước sử dụng công nghệ phản lực và giữ ổn định giúp người lái điều khiển dễ dàng hơn."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:30:00 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/khoa-hoc/moto-nuoc-co-the-bay-lon-vong-o-do-cao-9-met-3820572.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/khoa-hoc/moto-nuoc-co-the-bay-lon-vong-o-do-cao-9-met-3820572.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"13 người kinh doanh vàng ảo trái phép, chiếm đoạt 3 triệu USD"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/phap-luat/13-nguoi-kinh-doanh-vang-ao-trai-phep-chiem-doat-3-trieu-usd-3820820.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/tai-1538985425-3760-1538985459_180x108.jpg\" ></a></br>500 nhà đầu tư muốn tham gia kinh doanh tại sàn vàng ảo phải nộp cho IG 2.500 USD hoặc 5.000 USD."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:28:02 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/phap-luat/13-nguoi-kinh-doanh-vang-ao-trai-phep-chiem-doat-3-trieu-usd-3820820.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/phap-luat/13-nguoi-kinh-doanh-vang-ao-trai-phep-chiem-doat-3-trieu-usd-3820820.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Chứng khoán Trung Quốc lao dốc phiên đầu tuần"
+						],
+						"description": [
+							"<a href=\"https://kinhdoanh.vnexpress.net/tin-tuc/quoc-te/chung-khoan-trung-quoc-lao-doc-phien-dau-tuan-3820779.html\"><img width=130 height=100 src=\"https://i-kinhdoanh.vnecdn.net/2018/10/08/chinaset-1538985750-3950-1538985879_180x108.jpg\" ></a></br>Nhà đầu tư tỏ ra lo ngại sau khi Ngân hàng Trung ương Trung Quốc (PBOC) giảm tỷ lệ dự trữ bắt buộc để kích thích tăng trưởng kinh tế."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:27:28 +0700"],
+						"link": [
+							"https://kinhdoanh.vnexpress.net/tin-tuc/quoc-te/chung-khoan-trung-quoc-lao-doc-phien-dau-tuan-3820779.html"
+						],
+						"guid": [
+							"https://kinhdoanh.vnexpress.net/tin-tuc/quoc-te/chung-khoan-trung-quoc-lao-doc-phien-dau-tuan-3820779.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": ["Miền Bắc đêm mai đón gió mùa đông bắc"],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/thoi-su/mien-bac-dem-mai-don-gio-mua-dong-bac-3820850.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/1015084017551200x0-1538986733-1474-1538987071_180x108.jpg\" ></a></br>Đêm thứ ba, gió mùa đông bắc sẽ tràn đến vùng núi, sáng thứ tư xâm lấn vùng đồng bằng Bắc Bộ, cao nhất ngày 10/10 khoảng 26 độ C. "
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:26:27 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/thoi-su/mien-bac-dem-mai-don-gio-mua-dong-bac-3820850.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/thoi-su/mien-bac-dem-mai-don-gio-mua-dong-bac-3820850.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Brooklyn Beckham bị khán giả Trung Quốc chỉ trích"
+						],
+						"description": [
+							"<a href=\"https://giaitri.vnexpress.net/tin-tuc/gioi-sao/quoc-te/brooklyn-beckham-bi-khan-gia-trung-quo-c-chi-tri-ch-3820813.html\"><img width=130 height=100 src=\"https://i-giaitri.vnecdn.net/2018/10/08/brooklynbeckhamt-1538985432-9986-1538985498_180x108.jpg\" ></a></br>Nhiều người phản đối con trai David Beckham đăng lên Instagram ảnh chụp người châu Á và ám chỉ phân biệt chủng tộc. "
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:26:00 +0700"],
+						"link": [
+							"https://giaitri.vnexpress.net/tin-tuc/gioi-sao/quoc-te/brooklyn-beckham-bi-khan-gia-trung-quo-c-chi-tri-ch-3820813.html"
+						],
+						"guid": [
+							"https://giaitri.vnexpress.net/tin-tuc/gioi-sao/quoc-te/brooklyn-beckham-bi-khan-gia-trung-quo-c-chi-tri-ch-3820813.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Đặc nhiệm Mỹ đối mặt án tù 20 năm vì buôn ma túy xuyên biên giới"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/the-gioi/quan-su/dac-nhiem-my-doi-mat-an-tu-20-nam-vi-buon-ma-tuy-xuyen-bien-gioi-3820792.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/Colombia39481535698877-1538985-9289-1498-1538986002_180x108.jpg\" ></a></br>Binh sĩ đặc nhiệm Mỹ bị bắt hồi tháng 8 có thể nhận án tù 20 năm nếu bị buộc tội vận chuyển trái phép cocaine vào Mỹ."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:21:03 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/the-gioi/quan-su/dac-nhiem-my-doi-mat-an-tu-20-nam-vi-buon-ma-tuy-xuyen-bien-gioi-3820792.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/the-gioi/quan-su/dac-nhiem-my-doi-mat-an-tu-20-nam-vi-buon-ma-tuy-xuyen-bien-gioi-3820792.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Tôi mất bạn vì luôn cho rằng bạn không nên cưới gái làng chơi"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/tam-su/toi-mat-ban-vi-luon-cho-rang-ban-khong-nen-cuoi-gai-lang-choi-3820783.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/buonbuc-1538983313-8931-1538983336_180x108.jpg\" ></a></br>Có phải tôi đã làm gì sai hay vì bạn quá mê vợ mà không muốn liên lạc với tôi nữa?"
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:20:49 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/tam-su/toi-mat-ban-vi-luon-cho-rang-ban-khong-nen-cuoi-gai-lang-choi-3820783.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/tam-su/toi-mat-ban-vi-luon-cho-rang-ban-khong-nen-cuoi-gai-lang-choi-3820783.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Thổ Nhĩ Kỳ nghi ngờ nhà báo Arab Saudi bị giết tại lãnh sự quán"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/the-gioi/tho-nhi-ky-nghi-ngo-nha-bao-arab-saudi-bi-giet-tai-lanh-su-quan-3820680.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/103683459hi049728274-153898586-1584-4173-1538986589_180x108.jpg\" ></a></br>Ankara cho rằng nhà báo Khashoggi, người mất tích sau khi tới lãnh sự quán Arab Saudi, chưa hề rời khỏi đây, nhưng Riyadh phủ nhận quan điểm này."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:19:30 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/the-gioi/tho-nhi-ky-nghi-ngo-nha-bao-arab-saudi-bi-giet-tai-lanh-su-quan-3820680.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/the-gioi/tho-nhi-ky-nghi-ngo-nha-bao-arab-saudi-bi-giet-tai-lanh-su-quan-3820680.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Tổng bí thư: 'Rất nghiêm khắc và nhân văn khi xử các vụ tham nhũng'"
+						],
+						"description": [
+							"<a href=\"https://vnexpress.net/tin-tuc/thoi-su/tong-bi-thu-rat-nghiem-khac-va-nhan-van-khi-xu-cac-vu-tham-nhung-3820800.html\"><img width=130 height=100 src=\"https://i-vnexpress.vnecdn.net/2018/10/08/TBT-Nguyen-Phu-Trong3-3254-1538988532_180x108.jpg\" ></a></br>\"Xử lý án tham nhũng phải khiến tâm phục khẩu phục, rất nghiêm khắc nhưng cũng rất nhân văn\", Tổng bí thư nói."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:18:04 +0700"],
+						"link": [
+							"https://vnexpress.net/tin-tuc/thoi-su/tong-bi-thu-rat-nghiem-khac-va-nhan-van-khi-xu-cac-vu-tham-nhung-3820800.html"
+						],
+						"guid": [
+							"https://vnexpress.net/tin-tuc/thoi-su/tong-bi-thu-rat-nghiem-khac-va-nhan-van-khi-xu-cac-vu-tham-nhung-3820800.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Bà Nguyễn Thị Nga được đề cử làm Phó chủ tịch VALC"
+						],
+						"description": [
+							"<a href=\"https://kinhdoanh.vnexpress.net/tin-tuc/doanh-nghiep/ba-nguyen-thi-nga-duoc-de-cu-lam-pho-chu-tich-valc-3820812.html\"><img width=130 height=100 src=\"https://i-kinhdoanh.vnecdn.net/2018/10/08/banga68681525670964-1538985047-3160-1538985095_180x108.jpg\" ></a></br>Nhóm cổ đông đại diện bởi BRG vừa đề cử hai thành viên vào Hội đồng quản trị Công ty cổ phần Cho thuê máy bay Việt Nam (VALC)."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:17:22 +0700"],
+						"link": [
+							"https://kinhdoanh.vnexpress.net/tin-tuc/doanh-nghiep/ba-nguyen-thi-nga-duoc-de-cu-lam-pho-chu-tich-valc-3820812.html"
+						],
+						"guid": [
+							"https://kinhdoanh.vnexpress.net/tin-tuc/doanh-nghiep/ba-nguyen-thi-nga-duoc-de-cu-lam-pho-chu-tich-valc-3820812.html"
+						],
+						"slash:comments": ["0"]
+					},
+					{
+						"title": [
+							"Bác sĩ 106 tuổi vẫn khám bệnh nhân và nghiên cứu y học"
+						],
+						"description": [
+							"<a href=\"https://suckhoe.vnexpress.net/tin-tuc/suc-khoe/bac-si-106-tuoi-van-kham-benh-nhan-va-nghien-cuu-y-hoc-3820767.html\"><img width=130 height=100 src=\"https://i-suckhoe.vnecdn.net/2018/10/08/william-frankland-3804-1538984405_180x108.jpg\" ></a></br>Thắt chiếc cà vạt yêu thích, bác sĩ A. William Frankland ngồi xuống chiếc ghế bành màu be và tiến hành công việc 80 năm qua là khám bệnh nhân."
+						],
+						"pubDate": ["Mon, 08 Oct 2018 15:11:33 +0700"],
+						"link": [
+							"https://suckhoe.vnexpress.net/tin-tuc/suc-khoe/bac-si-106-tuoi-van-kham-benh-nhan-va-nghien-cuu-y-hoc-3820767.html"
+						],
+						"guid": [
+							"https://suckhoe.vnexpress.net/tin-tuc/suc-khoe/bac-si-106-tuoi-van-kham-benh-nhan-va-nghien-cuu-y-hoc-3820767.html"
+						],
+						"slash:comments": ["0"]
+					}
+				]
+			}
+		]
+	}
+}
