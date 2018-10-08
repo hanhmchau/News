@@ -88,6 +88,7 @@ export class SinglePostComponent {
                 .subscribe(comment => {
                     comment.commentername = this.user.email;
                     comment.datecommented = new Date();
+                    comment.children = [];
                     this.post.comments.push(comment);
                     this.newReplyContent = '';
                     this.post.commentcount++;
