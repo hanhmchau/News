@@ -1,3 +1,4 @@
+import { AuthorPostComponent } from './author-post/author-post.component';
 import { CommentComponent } from './comment/comment.component';
 import { FilterCategoryPipe } from './filterCategory.pipe';
 import { PaginatePipe } from './paginate.pipe';
@@ -40,6 +41,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import {ForbiddenComponent} from './forbidden/forbidden.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoadingComponent } from './loading/loading.component';
 
 const tokenGetter = () => localStorage.getItem("token");
 
@@ -68,7 +70,9 @@ const tokenGetter = () => localStorage.getItem("token");
         FromNowPipe,
         NotFoundComponent,
         ForbiddenComponent,
-        FooterComponent
+        FooterComponent,
+        AuthorPostComponent,
+        LoadingComponent
     ],
     imports: [
         BrowserModule,

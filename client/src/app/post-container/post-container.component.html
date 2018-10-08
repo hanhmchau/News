@@ -8,18 +8,32 @@
             [(ngModel)]="search" (input)="refilter()" />
         <fa name="search" (click)="toggleSearch()"></fa>
     </div>
-    <app-post [post]="post" *ngFor="let post of (filteredPosts | paginate:page:pageSize)"></app-post>
-    <div class="footer">
-        <div class="page-size">
-            Show
-            <select [(ngModel)]="pageSize" (ngModelChange)="repaginate(1)">
-                <option value="5" selected>5</option>
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-            </select>
-            results
+    <div *ngIf="filteredPosts.length > 0; else nopost">
+        <app-post [post]="post" *ngFor="let post of (filteredPosts | paginate:page:pageSize)"></app-post>
+        <div class="footer">
+            <div class="page-size">
+                Show
+                <select [(ngModel)]="pageSize" (ngModelChange)="repaginate(1)">
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+                results
+            </div>
+            <app-pagination [total]="filteredPosts.length" [pageSize]="pageSize" (pageChanged)="repaginate($event)"></app-pagination>
         </div>
-        <app-pagination [total]="filteredPosts.length" [pageSize]="pageSize" (pageChanged)="repaginate($event)"></app-pagination>
     </div>
+    <ng-template #nopost>
+        <ng-container *ngIf="loaded; else loading">
+            <div class="no-post">
+                Nothing to see here.
+            </div>
+        </ng-container>
+        <ng-template #loading>
+            <div class="loader-container">
+                <app-loading></app-loading>
+            </div>
+        </ng-template>
+    </ng-template>
 </div>

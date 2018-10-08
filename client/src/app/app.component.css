@@ -8,4 +8,5 @@
 
 .inner-container {
     width: 800px;
+    min-height: 80vh;
 }

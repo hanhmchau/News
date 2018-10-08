@@ -10,7 +10,7 @@
     <ng-container *ngIf="user; else guest">
         <span class="item">
             <fa name="user-circle-o"></fa>
-            <span>Hi, {{shortEmail}}</span>
+            <a routerLink="/me">Hi, {{shortEmail}}</a>
         </span>
         <span *ngIf="isJournalist" class="item">
             <fa name="pencil"></fa>

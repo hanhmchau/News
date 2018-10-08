@@ -44,3 +44,15 @@
 button:focus, button.active {
     outline: none;
 }
+
+.no-post {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.loader-container {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

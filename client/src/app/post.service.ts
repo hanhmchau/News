@@ -20,6 +20,10 @@ export class PostService {
         return this.http.get<Post[]>(this.postUrl);
     }
 
+    getPostsByAuthor(id: string): Observable<Post[]> {
+        return this.http.get<Post[]>(`${this.postUrl}/user/${id}`);
+    }
+
     getPostById(id: string): Observable<Post> {
         return this.http.get<Post>(`${this.postUrl}/${id}`);
     }

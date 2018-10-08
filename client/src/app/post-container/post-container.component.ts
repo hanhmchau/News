@@ -52,6 +52,7 @@ export class PostContainerComponent {
     private categoryId = 0;
     private categories: Category[] = [];
     private showSearch = false;
+    private loaded = false;
     @ViewChild('searchInput') searchInput: ElementRef;
 
     constructor(
@@ -63,6 +64,7 @@ export class PostContainerComponent {
 
     ngOnInit(): void {
         this.postService.getPosts().subscribe(posts => {
+            this.loaded = true;
             this.posts = posts;
             this.refilter();
         });

@@ -1,0 +1,69 @@
+<div class="container" *ngIf="posts.length > 0; else nopost">
+    <div class="posts" *ngIf="getPublicPosts().length > 0">
+        <div class="section-title">
+            Your Public Posts
+        </div>
+        <div class="box">
+            <div class="post public" *ngFor="let post of getPublicPosts()">
+                <a routerLink="/post/{{post.id}}">
+                    <div class="half" [style.backgroundImage]="'url('+post.previewimage+')'">
+                    </div>
+                    <div class="half">
+                        <div class="title">
+                            {{post.name}}
+                        </div>
+                        <div class="category">
+                            {{post.categoryname}}
+                        </div>
+                        <div class="footer">
+                            <a class="manage-link" routerLink="/manage-post/{{post.id}}">
+                                Edit
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="posts" *ngIf="getPrivatePosts().length > 0">
+        <div class="section-title">
+            Your Private Posts
+        </div>
+        <div class="box">
+            <div class="post public" *ngFor="let post of getPrivatePosts()">
+                <a routerLink="/post/{{post.id}}">
+                    <div class="half" [style.backgroundImage]="'url('+post.previewimage+')'">
+                    </div>
+                    <div class="half">
+                        <div class="title">
+                            {{post.name}}
+                        </div>
+                        <div class="category">
+                            {{post.categoryname}}
+                        </div>
+                        <div class="footer">
+                            <a class="manage-link" routerLink="/manage-post/{{post.id}}">
+                                Edit
+                            </a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #nopost>
+    <ng-container *ngIf="loaded; else loading">
+        <div class="no-post-container">
+            <h1>No post here yet.</h1>
+            <a routerLink="/new-post">
+                <h5>Write something?</h5>
+            </a>
+        </div>
+    </ng-container>
+    <ng-template #loading>
+        <div class="loader-container">
+            <app-loading></app-loading>
+        </div>
+    </ng-template>
+</ng-template>

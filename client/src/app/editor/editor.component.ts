@@ -115,13 +115,16 @@ export class EditorComponent {
 
     createNewTag(tag: any) {
         if (!tag.id) {
-            this.postService.createNewTag(tag.name).subscribe(result => {
-                this.post.tags.push({
-                    id: result.id,
-                    name: tag.name
+            let tagName = typeof tag === "string" ? tag : tag.name;
+            this.postService
+                .createNewTag(tagName)
+                .subscribe(result => {
+                    this.post.tags.push({
+                        id: result.id,
+                        name: tagName
+                    });
+                    this.post.tags = this.post.tags.filter(t => t !== tag);
                 });
-                this.post.tags = this.post.tags.filter(t => t !== tag);
-            });
         }
     }
 }

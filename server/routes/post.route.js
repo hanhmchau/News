@@ -24,6 +24,8 @@ router.get('/tags', postController.getTagSuggestions);
 
 router.post('/tags', postController.createTag);
 
+router.get('/user/:id', userController.isProfileOwner, postController.getPostsByAuthor);
+
 router.get('/', postController.getAllPublicPosts);
 
 router.get('/:id', postController.getPostById);

@@ -18,8 +18,8 @@ exports.getAllPublicPosts = async (req, res) => {
 };
 
 exports.getPostsByAuthor = async (req, res) => {
-	const { authorId, includesPrivate, includesPublic } = { ...req.body };
-	const posts = await postService.getPostsByAuthor(authorId, includesPrivate, includesPublic);
+	const authorId = req.params.id;
+	const posts = await postService.getPostsByAuthor(authorId, true, true);
 	res.json(posts);
 };
 
