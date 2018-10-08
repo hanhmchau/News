@@ -47,6 +47,10 @@ const routes: Routes = [
         canActivate: [NoAuthGuard]
     },
     {
+        path: "tag/:tag",
+        component: PostContainerComponent
+    },
+    {
         path: "forbidden",
         component: ForbiddenComponent
     },

@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { ActivatedRouteSnapshot } from '@angular/router';
 import { PostService } from "./../post.service";
 import { CategoryService } from "./../category.service";
 import { Component, ViewChild, ElementRef } from "@angular/core";
@@ -53,24 +55,35 @@ export class PostContainerComponent {
     private categories: Category[] = [];
     private showSearch = false;
     private loaded = false;
+    private tag: string;
     @ViewChild('searchInput') searchInput: ElementRef;
 
     constructor(
         private postService: PostService,
         private categoryService: CategoryService,
         private searchPipe: SearchPipe,
-        private filterCategoryPipe: FilterCategoryPipe
+        private filterCategoryPipe: FilterCategoryPipe,
+        private activatedRoute: ActivatedRoute
     ) {}
 
     ngOnInit(): void {
+        const snapshot = this.activatedRoute.snapshot;
+        this.tag = snapshot.paramMap.get('tag');
         this.postService.getPosts().subscribe(posts => {
             this.loaded = true;
             this.posts = posts;
+            if (this.tag) {
+                this.posts = this.filterTag(posts, this.tag);
+            }
             this.refilter();
         });
         this.categoryService
             .getCategories()
             .subscribe(categories => (this.categories = categories));
+    }
+
+    filterTag(posts: Post[], tagName: string): Post[] {
+        return posts.filter(post => post.tags.map(tag => tag.name.toLowerCase()).indexOf(tagName) > -1);
     }
 
     refilter() {

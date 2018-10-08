@@ -8,6 +8,10 @@
             [(ngModel)]="search" (input)="refilter()" />
         <fa name="search" (click)="toggleSearch()"></fa>
     </div>
+    <div class="tag-title" *ngIf="tag">
+        <span class="big">Posts Tagged</span>
+        <span class="small">{{tag}}</span>
+    </div>
     <div *ngIf="filteredPosts.length > 0; else nopost">
         <app-post [post]="post" *ngFor="let post of (filteredPosts | paginate:page:pageSize)"></app-post>
         <div class="footer">

@@ -56,3 +56,19 @@ button:focus, button.active {
     justify-content: center;
     align-items: center;
 }
+
+.tag-title {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.tag-title .big {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.tag-title .small {
+    margin-left: 10px;
+    font-size: 18px;
+    color: gray;
+}

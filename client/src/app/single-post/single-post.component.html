@@ -17,9 +17,9 @@
             </div>
             <div class="tag-list">
                 <span class="tag" *ngFor="let tag of post.tags; let i=index">
-                    <span class="name">
+                    <a routerLink="/tag/{{tag.name.toLowerCase()}}" class="name">
                         {{tag.name}}
-                    </span>
+                    </a>
                     <span *ngIf="i<post.tags.length-1">
                         ,
                     </span>
