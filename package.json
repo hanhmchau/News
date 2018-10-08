@@ -25,7 +25,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "cd server && npm run prod-start",
+    "start": "cd server && npm start",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
