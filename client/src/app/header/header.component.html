@@ -12,9 +12,9 @@
             <fa name="user-circle-o"></fa>
             <span>Hi, {{shortEmail}}</span>
         </span>
-        <span class="item">
+        <span *ngIf="isJournalist" class="item">
             <fa name="pencil"></fa>
-            <a *ngIf="isJournalist" routerLink="/new-post">New Post</a>
+            <a routerLink="/new-post">New Post</a>
         </span>
         <span class="item">
             <a routerLink="/" (click)="logout()">Log Out</a>

@@ -15,6 +15,7 @@ import Comment from '../comment';
 export class CommentComponent {
     @Input() comment: Comment;
     @Input() currentUser: User;
+    @Input() postAuthor: number;
     private newReplyContent = "";
     private showReplyBox = false;
     private options: Object = {

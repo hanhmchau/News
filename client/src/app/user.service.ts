@@ -71,6 +71,7 @@ export class UserService {
             tap(data => {
                 if (data.token) {
                     data.user.email = email;
+                    data.user.role = consts.roles.JOURNALIST;
                     this.addNewUserToSession(data);
                 }
             }),

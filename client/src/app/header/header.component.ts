@@ -30,8 +30,9 @@ export class HeaderComponent {
             .subscribe(user => {
                 this.user = user;
                 if (user) {
+                    console.log(this.user);
                     this.shortEmail = this.shorten(user.email);
-                    this.isJournalist = user.role === consts.roles.JOURNALIST;    
+                    this.isJournalist = user.role === consts.roles.JOURNALIST; //temporary fix
                 }
             });
     }

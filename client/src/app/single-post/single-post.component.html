@@ -55,7 +55,7 @@
                 {{post.commentcount}} Comment{{post.commentcount > 1 ? 's' : ''}}
                 <span class="subtitle">{{post.name}}</span>
             </div>
-            <app-comment *ngFor="let comment of post.comments" [currentUser]="user" [comment]="comment"></app-comment>
+            <app-comment *ngFor="let comment of post.comments" [postAuthor]="post.authorid" [currentUser]="user" [comment]="comment"></app-comment>
         </div>
     </div>
 </div>

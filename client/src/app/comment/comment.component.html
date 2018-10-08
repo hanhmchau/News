@@ -1,7 +1,7 @@
 <div class="comment-container">
     <svg class="avatar" width="80" height="80" [jdenticonHash]="comment.commentername">
     </svg>
-    <div [ngClass]="{'comment': true, 'by-author': currentUser && currentUser.id === comment.commenterid}">
+    <div [ngClass]="{'comment': true, 'by-author': currentUser && postAuthor === comment.commenterid}">
         <div class="dog-ear">&nbsp;</div>
         <div class="header">
             <div class="commenter">{{comment.commentername | shortEmail}}</div>
@@ -15,5 +15,5 @@
         <div [froalaEditor]="options" [(froalaModel)]="newReplyContent"></div>
         <button class="black-button" (click)="reply()">Submit</button>
     </div>
-    <app-comment *ngFor="let child of comment.children" [currentUser]="currentUser" [comment]="child"></app-comment>
+    <app-comment *ngFor="let child of comment.children" [postAuthor]="postAuthor" [currentUser]="currentUser" [comment]="child"></app-comment>
 </div>
