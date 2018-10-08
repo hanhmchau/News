@@ -12,7 +12,10 @@ exports.devServer = ({ host, port } = {}) => ({
         host,
         port,
         open: true,
-        overlay: true
+        overlay: true,
+        proxy: {
+            '/api': 'http://localhost:3000'
+        }
     }
 });
 

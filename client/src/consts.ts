@@ -1,5 +1,5 @@
 const consts = {
-    API: process.env.RUN_AT === 'server' ? '/api' : 'http://localhost:3000/api',
+    API: '/api', // will be changed if running in development
     roles: {
         READER: 0,
         JOURNALIST: 1

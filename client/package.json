@@ -1,12 +1,14 @@
 {
   "name": "angular-pack",
   "version": "1.0.0",
-  "description": "",
+  "description": "", 
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch /config/*/** --exec \"webpack-dev-server --mode development --watch\"",
     "start": "nodemon",
     "build": "webpack --env production",
+    "copy": "robocopy dist ..\\server\\dist > output.log",
+    "delete": "del -r /F /Q ..\\server\\dist 2>output.log",
     "build-dev": "webpack --env development",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack --aot --env production",
