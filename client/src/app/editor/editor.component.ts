@@ -45,6 +45,7 @@ export class EditorComponent {
     };
     private tagSuggestions$: Observable<Tag[]>;
     private tagTypeahead = new Subject<string>();
+    private showSaved = false;
 
     constructor(
         private postService: PostService,
@@ -85,6 +86,10 @@ export class EditorComponent {
 
     save() {
         this.postService.saveOrUpdate(this.post).subscribe(data => {
+            this.showSaved = true;
+            setTimeout(() => {
+                this.showSaved = false;
+            }, 2000);
             if (data && data.id) {
                 this.router.navigate([`/manage-post/${data.id}`]);
             }

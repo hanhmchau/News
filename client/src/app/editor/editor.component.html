@@ -37,4 +37,7 @@
     &nbsp;
     <!-- <button class="secondary-black-button" [disabled]="!isValidated()" (click)="post.public = false; save()">Save as
         draft</button> -->
+    <span [ngClass]="{'saved': true, 'show-saved': showSaved}">
+        Saved.
+    </span>
 </div>

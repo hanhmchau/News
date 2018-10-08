@@ -98,3 +98,15 @@ input[type=file] {
 .info-box {
     margin: 40px 0 20px 0;
 }
+
+.saved {
+    font-size: 13px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.saved.show-saved {
+    opacity: 1;
+}
