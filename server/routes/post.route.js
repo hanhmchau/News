@@ -28,7 +28,7 @@ router.get('/user/:id', userController.isProfileOwner, postController.getPostsBy
 
 router.get('/', postController.getAllPublicPosts);
 
-router.get('/:id', postController.getPostById);
+router.get('/:id', userController.tunnelUser, postController.getPostById);
 
 router.get('/:id/private', userController.isPostOwner, postController.getPrivateOrPublicPostById);
 

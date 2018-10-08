@@ -45,6 +45,17 @@ exports.register = async (req, res) => {
 	}
 };
 
+exports.tunnelUser = async (req, res, next) => {
+	try {
+		const token = req.get('Authorization').split(' ')[1];
+		const decoded = jwt.verify(token, process.env.SECRET);
+		req.user = decoded.id;
+	} catch (e) {
+		req.user = null;
+	}
+	next();
+};
+
 exports.isAuthenticated = async (req, res, next) => {
 	try {
 		const token = req.get('Authorization').split(' ')[1];

@@ -50,12 +50,15 @@ exports.update = async (req, res) => {
 };
 
 exports.getPostById = async (req, res) => {
+    const user = req.user;
     const post = await postService.getById(req.params.id);
-    if (post && post.public) {
-        res.json(post);
-    } else {
-        res.sendStatus(404);
+    if (post) {
+        if (post.public || (user && user === post.authorid)) {
+            res.json(post);
+            return;
+		}
     }
+    res.sendStatus(404);
 };
 
 exports.getPrivateOrPublicPostById = async (req, res) => {
