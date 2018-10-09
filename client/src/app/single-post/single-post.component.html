@@ -2,9 +2,11 @@
     <div class="post" *ngIf="post">
         <div class="title">{{post.name}}</div>
         <div class="subtitle">
-            posted in <span>{{post.categoryname}}</span>
-            on <span>{{post.datepublished | date:'longDate'}}</span>
-            by <span>{{post.authorname | shortEmail}}</span>
+            posted in <span class="underline">{{post.categoryname}}</span>
+            on <span class="underline">{{post.datepublished | date:'longDate'}}</span>
+            <span *ngIf="post.authorname">
+                by <span class="underline">{{post.authorname | shortEmail}}</span>
+            </span>
         </div>
         <div class="preview-image" *ngIf="post.previewimage">
             <img src="{{post.previewimage}}">

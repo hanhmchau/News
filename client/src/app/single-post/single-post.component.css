@@ -21,7 +21,7 @@ img {
     margin: 30px;
 }
 
-.subtitle span {
+.subtitle span.underline {
     color: #333;
     text-decoration: underline dotted;
 }
