@@ -46,8 +46,6 @@ import {
 })
 export class PostContainerComponent {
     private posts: Post[] = [];
-    private filteredPosts: Post[] = [];
-    private paginatedPosts: Post[] = [];
     private pageSize = 5;
     private page = 1;
     private search = "";
@@ -55,7 +53,8 @@ export class PostContainerComponent {
     private categories: Category[] = [];
     private showSearch = false;
     private loaded = false;
-    private tag: string;
+    private tag: string = undefined;
+    private total = 0;
     @ViewChild('searchInput') searchInput: ElementRef;
 
     constructor(
@@ -69,14 +68,7 @@ export class PostContainerComponent {
     ngOnInit(): void {
         const snapshot = this.activatedRoute.snapshot;
         this.tag = snapshot.paramMap.get('tag');
-        this.postService.getPosts().subscribe(posts => {
-            this.loaded = true;
-            this.posts = posts;
-            if (this.tag) {
-                this.posts = this.filterTag(posts, this.tag);
-            }
-            this.refilter();
-        });
+        this.refilter();
         this.categoryService
             .getCategories()
             .subscribe(categories => (this.categories = categories));
@@ -86,16 +78,23 @@ export class PostContainerComponent {
         return posts.filter(post => post.tags.map(tag => tag.name.toLowerCase()).indexOf(tagName) > -1);
     }
 
+    query() {
+        this.postService.searchPosts(this.categoryId, this.search, this.tag, this.page, this.pageSize)
+            .subscribe(data => {
+                this.posts = data.posts;
+                this.total = data.count;
+                this.loaded = true;
+        });
+    }
+
     refilter() {
-        this.filteredPosts = this.searchPipe.transform(
-            this.filterCategoryPipe.transform(this.posts, this.categoryId),
-            this.search
-        );
-        this.repaginate(1); // return to first page
+        this.page = 1;
+        this.query();
     }
 
     repaginate(page: number) {
         this.page = page;
+        this.query();
     }
 
     onBlurSearch() {

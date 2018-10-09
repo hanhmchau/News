@@ -11,10 +11,23 @@ exports.create = async (req, res) => {
 };
 
 exports.getAllPublicPosts = async (req, res) => {
-    const { page = 1, pageSize = 10 } = { ...req.body };
-    const offset = (page - 1) * pageSize;
-	const posts = await postService.getAllPublicPosts(pageSize, offset);
-	res.json(posts);
+    const { page, pageSize, categoryid, phrase, tag } = { ...req.query };
+	const posts = await postService.getAllPublicPosts({
+        page,
+        pageSize,
+        phrase,
+        tag,
+        categoryid
+    });
+    const count = await postService.countAllPublicPosts({
+        categoryid,
+        tag,
+        phrase
+    });
+	res.json({
+        posts,
+        count
+    });
 };
 
 exports.getPostsByAuthor = async (req, res) => {

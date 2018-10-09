@@ -12,8 +12,8 @@
         <span class="big">Posts Tagged</span>
         <span class="small">{{tag}}</span>
     </div>
-    <div *ngIf="filteredPosts.length > 0; else nopost">
-        <app-post [post]="post" *ngFor="let post of (filteredPosts | paginate:page:pageSize)"></app-post>
+    <div *ngIf="posts.length > 0; else nopost">
+        <app-post [post]="post" *ngFor="let post of posts"></app-post>
         <div class="footer">
             <div class="page-size">
                 Show
@@ -25,7 +25,7 @@
                 </select>
                 results
             </div>
-            <app-pagination [total]="filteredPosts.length" [pageSize]="pageSize" (pageChanged)="repaginate($event)"></app-pagination>
+            <app-pagination [total]="total" [pageSize]="pageSize" (pageChanged)="repaginate($event)"></app-pagination>
         </div>
     </div>
     <ng-template #nopost>

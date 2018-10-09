@@ -3,6 +3,6 @@ import { Pipe, PipeTransform } from "@angular/core";
 @Pipe({ name: "shortEmail" })
 export class ShortEmailPipe implements PipeTransform {
     transform(value: string) {
-        return value.slice(0, value.indexOf('@'));
+        return value ? value.slice(0, value.indexOf('@')) : value;
     }
 }
