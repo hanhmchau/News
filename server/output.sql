@@ -1,0 +1,17 @@
+INSERT INTO Category(Name, Rss) VALUES('Business', 'https://vnexpress.net/rss/kinh-doanh.rss');
+INSERT INTO Category(Name, Rss) VALUES('Startup', 'https://vnexpress.net/rss/startup.rss');
+INSERT INTO Category(Name, Rss) VALUES('Entertainment', 'https://vnexpress.net/rss/giai-tri.rss');
+INSERT INTO Category(Name, Rss) VALUES('Sports', 'https://vnexpress.net/rss/the-thao.rss');
+INSERT INTO Category(Name, Rss) VALUES('Law', 'https://vnexpress.net/rss/phap-luat.rss');
+INSERT INTO Category(Name, Rss) VALUES('Education', 'https://vnexpress.net/rss/giao-duc.rss');
+INSERT INTO Category(Name, Rss) VALUES('Health', 'https://vnexpress.net/rss/suc-khoe.rss');
+INSERT INTO Category(Name, Rss) VALUES('Life', 'https://vnexpress.net/rss/gia-dinh.rss');
+INSERT INTO Category(Name, Rss) VALUES('Travel', 'https://vnexpress.net/rss/du-lich.rss');
+INSERT INTO Category(Name, Rss) VALUES('Science', 'https://vnexpress.net/rss/khoa-hoc.rss');
+INSERT INTO Category(Name, Rss) VALUES('Digitization', 'https://vnexpress.net/rss/so-hoa.rss');
+INSERT INTO Category(Name, Rss) VALUES('Vehicles', 'https://vnexpress.net/rss/oto-xe-may.rss');
+INSERT INTO Category(Name, Rss) VALUES('Community', 'https://vnexpress.net/rss/cong-dong.rss');
+INSERT INTO Category(Name, Rss) VALUES('Events', 'https://vnexpress.net/rss/thoi-su.rss');
+INSERT INTO Category(Name, Rss) VALUES('Personal', 'https://vnexpress.net/rss/tam-su.rss');
+INSERT INTO Category(Name, Rss) VALUES('Humor', 'https://vnexpress.net/rss/cuoi.rss');
+INSERT INTO Category(Name, Rss) VALUES('World', 'https://vnexpress.net/rss/the-gioi.rss');
