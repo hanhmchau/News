@@ -20,6 +20,12 @@ const upload = multer({
     storage
 });
 
+const scrape = require('../tasks/scrape');
+router.get('/scrape', (req, res) => {
+    scrape();
+    res.sendStatus(204);
+});
+
 router.get('/tags', postController.getTagSuggestions);
 
 router.post('/tags', postController.createTag);

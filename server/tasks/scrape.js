@@ -4,7 +4,6 @@ const parseString = require('xml2js').parseString;
 const cheerio = require('cheerio');
 const postService = require('../services/post.service');
 const categoryService = require('../services/category.service');
-const fs = require('fs');
 
 const extractPreviewImage = description => {
 	const $ = cheerio.load(description);
@@ -66,4 +65,4 @@ const load = async () => {
 	});
 };
 
-load();
+module.exports = load;
