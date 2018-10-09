@@ -20,12 +20,23 @@ export class PaginationComponent {
 
     ngOnInit(): void {}
 
-    paginator() {
-        return Array(Math.ceil(this.total / this.pageSize));
+    maxPage() {
+        return Math.ceil(this.total / this.pageSize);
     }
 
-    changePage(page: number) {
-        this.activePage = page;
-        this.pageChanged.emit(this.activePage);
+    maxPageArray() {
+        return Array(this.maxPage());
+    }
+
+    changePage(page: string) {
+        try {
+            const parsedPage = parseInt(page);
+            if (parsedPage >= 1 && parsedPage <= this.maxPage()) {
+                this.activePage = parsedPage;
+                this.pageChanged.emit(this.activePage);
+            }
+        } catch (e) {
+
+        }
     }
 }

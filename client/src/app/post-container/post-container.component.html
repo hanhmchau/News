@@ -1,6 +1,6 @@
 <div>
     <div class="categories">
-        <button [ngClass]="{'fake-button': true, 'active': !categoryId}" (click)="categoryId=null; refilter()">All</button>
+        <button [ngClass]="{'fake-button': true, 'active': !categoryId}" (click)="categoryId=0; refilter()">All</button>
         <button [ngClass]="{'fake-button': true, 'active': categoryId === category.id}" *ngFor="let category of categories"
             (click)="categoryId=category.id; refilter()">{{category.name}}</button>
         <button [ngClass]="{'fake-button': true}" (click)="toggleSearch()" [@showHideSearch]="showSearch? 'hide' : 'cover'">Search</button>
@@ -17,7 +17,7 @@
         <div class="footer">
             <div class="page-size">
                 Show
-                <select [(ngModel)]="pageSize" (ngModelChange)="repaginate(1)">
+                <select [(ngModel)]="pageSize" (ngModelChange)="refilter()">
                     <option value="5" selected>5</option>
                     <option value="10">10</option>
                     <option value="25">25</option>
@@ -25,7 +25,7 @@
                 </select>
                 results
             </div>
-            <app-pagination [total]="total" [pageSize]="pageSize" (pageChanged)="repaginate($event)"></app-pagination>
+            <app-pagination [activePage]="page" [total]="total" [pageSize]="pageSize" (pageChanged)="repaginate($event)"></app-pagination>
         </div>
     </div>
     <ng-template #nopost>

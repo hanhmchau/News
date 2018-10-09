@@ -1,4 +1,23 @@
-<div class="pagination" *ngIf="paginator().length > 1">
-    <button [ngClass]="{'fake-button': true, 'active': i === (activePage - 1)}" *ngFor="let item of paginator(); let i=index"
-        (click)="changePage(i+1)">{{(i+1)}}</button>
+<div class="pagination" *ngIf="maxPage() > 1">
+    <ng-container *ngIf="maxPage() <= 5; else elseTemplate">
+        <button *ngFor="let item of maxPageArray(); let i=index" [ngClass]="{'fake-button': true, 'active': activePage === i + 1}" 
+        (click)="changePage(i+1)">{{(i + 1)}}</button>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <button [ngClass]="{'disabled': activePage === 1}" (click)="changePage(activePage - 1)">
+            <
+        </button>
+            <span>
+                <span class="active-page">
+                    {{activePage}}
+                </span>
+                of
+                <span class="max-page">
+                    {{maxPage()}}
+                </span>
+            </span>
+        <button [ngClass]="{'disabled': activePage === maxPage()}" (click)="changePage(activePage + 1)">
+                >
+        </button>
+    </ng-template>
 </div>
