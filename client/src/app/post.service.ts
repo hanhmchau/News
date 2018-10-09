@@ -102,13 +102,13 @@ export class PostService {
         page: number,
         pageSize: number
     ): Observable<any> {
-        const params = new HttpParams()
+        let params = new HttpParams()
             .append("categoryid", categoryid.toString())
             .append("phrase", phrase)
             .append("page", page.toString())
             .append("pageSize", pageSize.toString());
         if (tag) {
-            params.append('tag', tag);
+            params = params.append('tag', tag);
         }
         return this.http.get<any>(`${this.postUrl}`, {
             params

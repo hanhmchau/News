@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "file-loader": "^2.0.0",
     "froala-editor": "^2.8.5",
     "bcryptjs": "^2.4.3",
