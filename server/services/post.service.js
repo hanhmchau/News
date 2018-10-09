@@ -73,10 +73,10 @@ exports.getAllPublicPosts = async ({
 		parameters.push(categoryid);
 	}
 
-	whereClause += phrase ? `AND Name LIKE '%${phrase}%' ` : '';
+	whereClause += phrase ? `AND lower(Name) LIKE '%${phrase.toLowerCase()}%' ` : '';
 	if (tag) {
 		whereClause += tag
-			? ` AND $${position} IN (SELECT Name FROM Tag WHERE Id IN (SELECT TagId FROM PostTag WHERE PostId = p.id)) `
+			? ` AND Lower($${position}) IN (SELECT Lower(Name) FROM Tag WHERE Id IN (SELECT TagId FROM PostTag WHERE PostId = p.id)) `
 			: '';
 		position++;
 		parameters.push(tag);

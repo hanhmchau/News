@@ -4,8 +4,8 @@ const textVersion = require("textversionjs");
 @Pipe({ name: "blurbify" })
 export class BlurbifyPipe implements PipeTransform {
     transform(htmlString: string) {
-        return textVersion(htmlString, {
-            imgProcess: () => ''
-        }).slice(0, 250).trim() + '...';
+        if (!htmlString) return '';
+        let short = htmlString.slice(0, 450).trim();
+        return short.substring(0, short.lastIndexOf(' ')) + '...';
     }
 }

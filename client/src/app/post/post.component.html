@@ -23,8 +23,7 @@
     <div class="preview-image" *ngIf="post.previewimage">
         <img src="{{post.previewimage}}">
     </div>
-    <div class="content">
-        {{post.content | blurbify}}
+    <div class="content" [innerHTML]="post.content | blurbify">
     </div>
     <a class="continue-reading" routerLink="/post/{{post.id}}">
         Continue Reading
