@@ -1,7 +1,7 @@
 <div>
     <div class="categories">
         <button [ngClass]="{'fake-button': true, 'active': !categoryId}" (click)="categoryId=0; refilter()">All</button>
-        <button [ngClass]="{'fake-button': true, 'active': categoryId === category.id}" *ngFor="let category of categories"
+        <button [ngClass]="{'fake-button': true, 'active': categoryId === category.id}" *ngFor="let category of categories.slice(0,3)"
             (click)="categoryId=category.id; refilter()">{{category.name}}</button>
         <button [ngClass]="{'fake-button': true}" (click)="toggleSearch()" [@showHideSearch]="showSearch? 'hide' : 'cover'">Search</button>
         <input #searchInput (blur)="onBlurSearch()" [@showHideSearch]="showSearch? 'show' : 'hide'" class="search"
