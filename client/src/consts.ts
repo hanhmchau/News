@@ -3,7 +3,8 @@ const consts = {
     roles: {
         READER: 0,
         JOURNALIST: 1
-    }
+    },
+    UPLOAD_PRESET: 'kauzccgl'
 };
 
 export default consts;

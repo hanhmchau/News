@@ -7,6 +7,7 @@ import Post from "../post";
 import { Router } from "@angular/router";
 import { Observable, concat, of, Subject } from "rxjs";
 import Tag from "../tag";
+import consts from '../../consts';
 import { debounceTime, distinctUntilChanged, switchMap, catchError } from "rxjs/operators";
 
 @Component({
@@ -24,8 +25,18 @@ export class EditorComponent {
         charCounterCount: true,
         imageUpload: true,
         imageUploadMethod: 'POST',
-        imageUploadParam: 'preview-image',
+        imageUploadParam: 'file',
+        imageUploadParams: {
+            "upload_preset": consts.UPLOAD_PRESET
+        },
         imageUploadURL: this.postService.getUploadImageURL(),
+        events: {
+            'froalaEditor.image.uploaded': (e: any, editor: any, response: any) => {
+                response = JSON.parse(response);
+                editor.image.insert(response.secure_url, true, null, editor.image.get(), null)
+                return false
+            }
+        },
         toolbarButtons: [
             "bold",
             "italic",
@@ -70,7 +81,7 @@ export class EditorComponent {
         if (files.length) {
             const image = files.item(0);
             this.postService.uploadImage(image).subscribe((data: any) => {
-                this.post.previewimage = data.link;
+                this.post.previewimage = data.secure_url;
             });
         }
     }

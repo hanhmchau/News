@@ -33,13 +33,15 @@ export class PostService {
     }
 
     getUploadImageURL() {
-        return `${this.postUrl}/preview-image`;
+        return 'https://api.cloudinary.com/v1_1/dd7m2qcf4/upload';
+        // return `${this.postUrl}/preview-image`;
     }
 
     uploadImage(image: File): any {
         const formData: FormData = new FormData();
-        formData.append("preview-image", image, image.name);
-        return this.http.post<Post>(`${this.postUrl}/preview-image`, formData);
+        formData.append("file", image, image.name);
+        formData.append('upload_preset', consts.UPLOAD_PRESET);
+        return this.http.post<Post>(this.getUploadImageURL(), formData);
     }
 
     favorite(postId: number, userId: number): Observable<any> {
