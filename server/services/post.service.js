@@ -368,3 +368,10 @@ exports.createTag = async name => {
 	);
 	return rows[0];
 };
+
+exports.deleteOldPosts = async () => {
+	const { rows } = await db.query(
+		`DELETE FROM Post WHERE datePublished < CURRENT_TIMESTAMP -  INTERVAL '30 days'`
+	);
+	return rows;
+};
