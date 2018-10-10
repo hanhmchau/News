@@ -42,6 +42,7 @@ import {ForbiddenComponent} from './forbidden/forbidden.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingComponent } from './loading/loading.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const tokenGetter = () => localStorage.getItem("token");
 
@@ -89,7 +90,8 @@ const tokenGetter = () => localStorage.getItem("token");
         FroalaViewModule.forRoot(),
         AngularFontAwesomeModule,
         BrowserAnimationsModule,
-        NgSelectModule
+        NgSelectModule,
+        InfiniteScrollModule
     ],
     exports: [],
     providers: [

@@ -78,12 +78,19 @@ export class PostContainerComponent {
         return posts.filter(post => post.tags.map(tag => tag.name.toLowerCase()).indexOf(tagName) > -1);
     }
 
-    query() {
+    query(callback = (data: any) => {
+        this.posts = data.posts;
+        this.total = data.count;
+        this.loaded = true;
+    }) {
         this.postService.searchPosts(this.categoryId, this.search, this.tag, this.page, this.pageSize)
-            .subscribe(data => {
-                this.posts = data.posts;
-                this.total = data.count;
-                this.loaded = true;
+            .subscribe(callback);
+    }
+
+    onScroll() {
+        this.page += 1;
+        this.query(data => {
+            this.posts.push(...data.posts);
         });
     }
 
