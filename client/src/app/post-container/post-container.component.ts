@@ -56,6 +56,7 @@ export class PostContainerComponent {
     private tag: string = undefined;
     private total = 0;
     @ViewChild('searchInput') searchInput: ElementRef;
+    private shortCategories: Category[];
 
     constructor(
         private postService: PostService,
@@ -71,7 +72,10 @@ export class PostContainerComponent {
         this.refilter();
         this.categoryService
             .getCategories()
-            .subscribe(categories => (this.categories = categories));
+            .subscribe(categories => {
+                this.categories = categories;
+                this.shortCategories = categories.slice(3);
+            });
     }
 
     filterTag(posts: Post[], tagName: string): Post[] {

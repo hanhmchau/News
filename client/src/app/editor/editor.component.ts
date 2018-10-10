@@ -20,6 +20,7 @@ export class EditorComponent {
     post: Post = new Post();
     @ViewChild('imageBox') imageBox: ElementRef;
     private categories: Category[];
+    private shortCategories: Category[];
     private options: Object = {
         heightMin: 300,
         charCounterCount: true,
@@ -67,7 +68,9 @@ export class EditorComponent {
     ngOnInit(): void {
         this.categoryService
             .getCategories()
-            .subscribe(categories => (this.categories = categories));
+            .subscribe(categories => {
+                this.categories = categories;
+            });
         this.post = this.post || new Post();
         this.loadTagSuggestions();
     }
