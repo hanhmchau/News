@@ -5,9 +5,7 @@ exports.create = async (req, res) => {
     const post = req.body;
     post.authorId = req.user;
 	const newPost = await postService.create(post);
-	res.json({
-        id: newPost.id
-	});
+	res.json(newPost);
 };
 
 exports.getAllPublicPosts = async (req, res) => {
@@ -63,8 +61,11 @@ exports.update = async (req, res) => {
 };
 
 exports.getPostById = async (req, res) => {
+        console.log(req.params.id);
     const user = req.user;
-    const post = await postService.getById(req.params.id);
+    const post = await postService.getByIdOrUrl(req.params.id);
+        console.log(post);
+
     if (post) {
         if (post.public || (user && user === post.authorid)) {
             res.json(post);
@@ -75,7 +76,9 @@ exports.getPostById = async (req, res) => {
 };
 
 exports.getPrivateOrPublicPostById = async (req, res) => {
-    const post = await postService.getById(req.params.id);
+    console.log(req.params.id);
+    const post = await postService.getByIdOrUrl(req.params.id);
+    console.log(post);
 	if (post) {
         res.json(post);
 	} else {

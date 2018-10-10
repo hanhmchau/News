@@ -5,7 +5,7 @@
         </div>
         <div class="box">
             <div class="post public" *ngFor="let post of getPublicPosts()">
-                <a routerLink="/post/{{post.id}}">
+                <a routerLink="/post/{{post.nameurl}}">
                     <div class="half" [style.backgroundImage]="'url('+post.previewimage+')'">
                     </div>
                     <div class="half">
@@ -16,7 +16,7 @@
                             {{post.categoryname}}
                         </div>
                         <div class="footer">
-                            <a class="manage-link" routerLink="/manage-post/{{post.id}}">
+                            <a class="manage-link" routerLink="/manage-post/{{post.nameurl}}">
                                 Edit
                             </a>
                         </div>
@@ -31,7 +31,7 @@
         </div>
         <div class="box">
             <div class="post public" *ngFor="let post of getPrivatePosts()">
-                <a routerLink="/post/{{post.id}}">
+                <a routerLink="/post/{{post.nameurl}}">
                     <div class="half" [style.backgroundImage]="'url('+post.previewimage+')'">
                     </div>
                     <div class="half">
@@ -42,7 +42,7 @@
                             {{post.categoryname}}
                         </div>
                         <div class="footer">
-                            <a class="manage-link" routerLink="/manage-post/{{post.id}}">
+                            <a class="manage-link" routerLink="/manage-post/{{post.nameurl}}">
                                 Edit
                             </a>
                         </div>

@@ -102,7 +102,7 @@ export class EditorComponent {
                 this.showSaved = false;
             }, 2000);
             if (data && data.id) {
-                this.router.navigate([`/manage-post/${data.id}`]);
+                this.router.navigate([`/manage-post/${data.nameurl}`]);
             }
         });
     }

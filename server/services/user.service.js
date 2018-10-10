@@ -51,9 +51,9 @@ exports.getFavoritePosts = async userId => {
 	return rows;
 };
 
-exports.isOwner = async (userId, postId) => {
-	const { rows } = await db.query('SELECT authorId FROM Post WHERE id = $1', [
-		postId
+exports.isOwner = async (userId, postIdOrUrl) => {
+	const { rows } = await db.query('SELECT authorId FROM Post WHERE id::varchar = $1 OR nameUrl = $1::varchar', [
+		postIdOrUrl
     ]);
     const authorId = rows[0].authorid;
 	return authorId === userId;

@@ -4,6 +4,7 @@ import Comment from "./comment";
 export default class Post {
     id: number;
     name: string = "";
+    nameurl: string = "";
     content: string = "";
     categoryid: number = 0;
     categoryname: string;

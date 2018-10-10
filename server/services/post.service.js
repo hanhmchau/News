@@ -47,8 +47,9 @@ const _createNameUrl = title => {
 
 exports.create = async body => {
 	const { name, content, categoryid, authorid, previewimage, tags } = body;
+	const nameurl = _createNameUrl(name);
 	const { rows } = await db.query(
-		'INSERT INTO Post(Name, Content, CategoryId, AuthorId, PreviewImage, DatePublished, Public) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING Id',
+		'INSERT INTO Post(Name, Content, CategoryId, AuthorId, PreviewImage, DatePublished, Public, NameUrl) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING Id',
 		[
 			name,
 			content,
@@ -61,7 +62,10 @@ exports.create = async body => {
 	);
 	const id = rows[0].id;
 	_updateTags(id, tags);
-	return rows[0];
+	return {
+		id,
+		nameurl
+	};
 };
 
 exports.getAllPublicPosts = async ({
@@ -251,7 +255,7 @@ exports.getByTitleUrl = async titleUrl => {
 		`SELECT p.*, u.id AS authorid, u.email AS authorName, 
 		(SELECT COUNT(id) FROM Comment WHERE postId = p.id) AS commentCount,
                         (SELECT Name FROM Category WHERE id = p.categoryId) AS categoryName
-            FROM Post p LEFT JOIN AppUser u ON p.authorId = u.id WHERE p.titleUrl = $1`,
+            FROM Post p LEFT JOIN AppUser u ON p.authorId = u.id WHERE p.nameurl = $1`,
 		[titleUrl]
 	);
 	const post = rows[0];
@@ -265,16 +269,18 @@ exports.getByTitleUrl = async titleUrl => {
 };
 
 
-exports.getById = async id => {
+
+exports.getByIdOrUrl = async query => {
 	const { rows } = await db.query(
 		`SELECT p.*, u.id AS authorid, u.email AS authorName, 
 		(SELECT COUNT(id) FROM Comment WHERE postId = p.id) AS commentCount,
                         (SELECT Name FROM Category WHERE id = p.categoryId) AS categoryName
-            FROM Post p LEFT JOIN AppUser u ON p.authorId = u.id WHERE p.id = $1`,
-		[id]
+            FROM Post p LEFT JOIN AppUser u ON p.authorId = u.id WHERE p.id::varchar = $1 OR p.nameurl = $1::varchar`,
+		[query]
 	);
 	const post = rows[0];
 	if (post) {
+		const id = post.id;
 		post.tags = await exports.getTags(id);
 		post.comments = await exports.getComments(id);
 		post.favorites = await exports.getFavorites(id);

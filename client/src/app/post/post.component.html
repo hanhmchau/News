@@ -1,5 +1,5 @@
 <div class="post" *ngIf="post">
-    <a routerLink="/post/{{post.id}}" class="title">{{post.name}}</a>
+    <a routerLink="/post/{{post.nameurl}}" class="title">{{post.name}}</a>
     <div class="subtitle">
         posted in <span class="underline">{{post.categoryname}}</span>
         on <span class="underline">{{post.datepublished | date:'longDate'}}</span>
@@ -25,7 +25,7 @@
     </div>
     <div class="content" [innerHTML]="post.content | blurbify">
     </div>
-    <a class="continue-reading" routerLink="/post/{{post.id}}">
+    <a class="continue-reading" routerLink="/post/{{post.nameurl}}">
         Continue Reading
         <fa name="long-arrow-right"></fa>
     </a>

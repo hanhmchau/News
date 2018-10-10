@@ -36,7 +36,7 @@
             <span class="favorite-count">{{post.favorites.length}}</span>
         </button>
         <span class="you-liked-this" *ngIf="youLikedThis">You liked this.</span>
-        <button class="edit-button" routerLink="/manage-post/{{post.id}}"  *ngIf="user && user.id === post.authorid">
+        <button class="edit-button" routerLink="/manage-post/{{post.nameurl}}"  *ngIf="user && user.id === post.authorid">
             <fa name="pencil"></fa>
             Edit
         </button>
