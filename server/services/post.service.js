@@ -1,4 +1,6 @@
 const db = require('../db');
+const slugify = require('slugify');
+const leftPad = require('left-pad');
 
 const _updateTags = async (id, tags = []) => {
 	const unknownTags = tags.filter(tag => !tag.id);
@@ -32,6 +34,15 @@ exports.containsByTitle = async title => {
 		title
 	]);
 	return rows.length > 0;
+};
+
+const _createNameUrl = title => {
+	const slug = slugify(title, {
+		replacement: '-',
+		lower: true
+	});
+	const random = leftPad(Math.floor(Math.random() * 10000) + 1, 5, '0');
+	return slug + '-' + random;
 };
 
 exports.create = async body => {
@@ -232,6 +243,27 @@ exports.update = async body => {
 	_updateTags(id, tags);
 	return rows[0];
 };
+
+exports.getByTitleUrl = async titleUrl => {
+	const {
+		rows
+	} = await db.query(
+		`SELECT p.*, u.id AS authorid, u.email AS authorName, 
+		(SELECT COUNT(id) FROM Comment WHERE postId = p.id) AS commentCount,
+                        (SELECT Name FROM Category WHERE id = p.categoryId) AS categoryName
+            FROM Post p LEFT JOIN AppUser u ON p.authorId = u.id WHERE p.titleUrl = $1`,
+		[titleUrl]
+	);
+	const post = rows[0];
+	if (post) {
+		const id = post.id;
+		post.tags = await exports.getTags(id);
+		post.comments = await exports.getComments(id);
+		post.favorites = await exports.getFavorites(id);
+	}
+	return post;
+};
+
 
 exports.getById = async id => {
 	const { rows } = await db.query(
