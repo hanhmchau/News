@@ -57,7 +57,8 @@ exports.create = async body => {
 			authorid,
 			previewimage,
 			new Date(),
-			body.public
+			body.public,
+			_createNameUrl(name)
 		]
 	);
 	const id = rows[0].id;
